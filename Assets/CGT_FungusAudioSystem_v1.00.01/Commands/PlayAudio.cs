@@ -1,6 +1,5 @@
 using UnityEngine;
 using Fungus;
-using AudioDelegate = CGT.FungusExt.Audio.AudioEvents.AudioDelegate;
 
 namespace CGT.FungusExt.Audio
 {
@@ -29,7 +28,7 @@ namespace CGT.FungusExt.Audio
             if (ValidClip)
             {
                 AudioArgs args = GetAudioArgs();
-                AudioDelegate eventToPlay = playEvents[audioType];
+                AudioHandler eventToPlay = playEvents[audioType];
                 eventToPlay(args);
             }
             else
@@ -44,12 +43,13 @@ namespace CGT.FungusExt.Audio
         protected virtual AudioArgs GetAudioArgs()
         {
             AudioArgs args = new AudioArgs();
+            args.WantsVolumeSet = args.WantsPitchSet = false;
             args.Clip = clip;
             args.AtTime = atTime;
             args.Loop = loop;
             args.FadeDuration = fadeDuration;
 
-            args.OnComplete = Continue;
+            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
             // ^OnComplete will always be called right after the target clip starts playing, be it
             // right away or after a fade. Thus, we won't need a Continue call in OnEnter
 

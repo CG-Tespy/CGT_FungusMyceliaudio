@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
-using AudioDelegate = CGT.FungusExt.Audio.AudioEvents.AudioDelegate;
 
 namespace CGT.FungusExt.Audio
 {
@@ -25,7 +24,7 @@ namespace CGT.FungusExt.Audio
             playEvents[AudioType.Ambience] = AudioEvents.TriggerPlayAmbiance;
         }
 
-        protected Dictionary<AudioType, AudioDelegate> playEvents = new Dictionary<AudioType, AudioDelegate>();
+        protected Dictionary<AudioType, AudioHandler> playEvents = new Dictionary<AudioType, AudioHandler>();
 
         protected virtual void SetUpSetVolDict()
         {
@@ -34,9 +33,29 @@ namespace CGT.FungusExt.Audio
             setVolEvents[AudioType.Ambience] = AudioEvents.TriggerSetAmbienceVolume;
         }
 
-        protected Dictionary<AudioType, AudioDelegate> setVolEvents = new Dictionary<AudioType, AudioDelegate>();
+        protected Dictionary<AudioType, AudioHandler> setVolEvents = new Dictionary<AudioType, AudioHandler>();
         
         protected NeoAudioManager AudioManager { get { return NeoAudioManager.Instance; } }
+
+        protected virtual float RelevantStartingVolume
+        {
+            get
+            {
+                switch (audioType)
+                {
+                    case AudioType.Music:
+                        return AudioManager.MusicVolume;
+                    case AudioType.SFX:
+                        return AudioManager.SFXVolume;
+                    case AudioType.Ambience:
+                        return AudioManager.AmbienceVolume;
+                    default:
+                        throw new System.NotImplementedException("Not accounting for enough relevant starting volumes.");
+                }
+
+            }
+        }
+
         public override Color GetButtonColor()
         {
             return audioCommandColor;

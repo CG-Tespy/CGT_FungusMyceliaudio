@@ -44,11 +44,13 @@ namespace CGT.FungusExt.Audio
         {
             AudioArgs args = new AudioArgs();
             args.WantsVolumeSet = true;
-            args.Volume = Mathf.Clamp(volumeInput, 0f, 1);
+            args.WantsPitchSet = false;
+            args.StartingVolume = RelevantStartingVolume;
+            args.TargetVolume = Mathf.Clamp(volumeInput, 0f, 1);
             // ^ Sound playback might get funky if you set it to a value higher than 1, so...
             args.FadeDuration = Mathf.Max(0, fadeDuration);
 
-            args.OnComplete = Continue;
+            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
             // ^OnComplete will always be called right after the volume's done adjusting, be it
             // right away or after a fade. Thus, we won't need a Continue call in OnEnter
 

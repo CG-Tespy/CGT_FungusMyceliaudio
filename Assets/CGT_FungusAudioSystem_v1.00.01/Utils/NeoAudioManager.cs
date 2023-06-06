@@ -86,9 +86,9 @@ namespace CGT.FungusExt.Audio
             AudioEvents.StopAmbiance -= forAmbiance.Stop;
         }
 
-        public virtual float MusicVolume { get { return forMusic.CurrentVol; } }
-        public virtual float SFXVolume { get { return forSFX.CurrentVol; } }
-        public virtual float AmbienceVolume { get { return forAmbiance.CurrentVol; } }
+        public virtual float MusicVolume { get { return forMusic.CurrentVolume; } }
+        public virtual float SFXVolume { get { return forSFX.CurrentVolume; } }
+        public virtual float AmbienceVolume { get { return forAmbiance.CurrentVolume; } }
 
         public virtual float MusicPitch { get { return forMusic.CurrentPitch; } }
         public virtual float SFXPitch { get { return forSFX.CurrentPitch; } }

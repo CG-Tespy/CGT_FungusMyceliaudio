@@ -1,14 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace CGT.FungusExt.Audio
 {
     public static class AudioEvents
     {
-        public delegate void AudioDelegate(AudioArgs args);
-
-        public static event AudioDelegate PlayMusic = delegate { },
+        public static event AudioHandler PlayMusic = delegate { },
             PlaySFX = delegate { },
             PlayAmbiance = delegate { },
 

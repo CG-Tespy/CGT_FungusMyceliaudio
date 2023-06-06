@@ -20,6 +20,7 @@ namespace CGT.FungusExt.Audio
         protected virtual void SetUpAudioSource()
         {
             baseSource = gameObject.AddComponent<AudioSource>();
+            baseSource.playOnAwake = false;
         }
 
         public virtual void Play(AudioArgs args)
@@ -27,66 +28,66 @@ namespace CGT.FungusExt.Audio
             if (!args.WantsClipPlayed)
                 return;
 
+            CorrectStartingValsAsNeeded(args);
+
             if (args.WantsFade) // The only fade we'll consider is for volume
             {
-                args.OnComplete = PlayAudioBeforeOnComplete(args);
-                args.OnComplete = ChangeSettingsBeforeOnComplete(args);
-                // ^ So that the audio is played properly right when the
-                // fading is done: settings changed first, then play
+                // We want the fading to happen first, then make sure the delayless
+                // play operations happen
+                args.OnComplete = SetBeforeOnComplete(args, PlayWithoutDelay);
+                args.OnComplete = SetBeforeOnComplete(args, UpdateSettings);
+                // ^ They're in this order so that the settings are updated before the play
                 FadeVolume(args);
             }
             else
             {
-                ChangeSettingsAsAppropriate(args);
-                PlayRightAway(args);
-                args.OnComplete();
+                UpdateSettings(args);
+                PlayWithoutDelay(args);
+                args.OnComplete(args);
             }
         }
 
+        protected virtual void CorrectStartingValsAsNeeded(AudioArgs args)
+        {
+            // Since we don't want the client to always worry about the starting
+            // values.
+            if (args.StartingVolume < 0)
+                args.StartingVolume = CurrentVolume;
+            if (args.StartingPitch < 0)
+                args.StartingPitch = CurrentPitch;
+        }
+
+        /// <returns>A version of the args' OnComplete that has the passed toExecute executing first</returns>
+        protected virtual AudioHandler SetBeforeOnComplete(AudioArgs args, AudioHandler toExecute)
+        {
+            AudioHandler onComplete = args.OnComplete;
+            AudioHandler result = (AudioArgs maybeOtherArgs) =>
+            {
+                toExecute(maybeOtherArgs);
+                onComplete(maybeOtherArgs);
+            };
+
+            return result;
+        }
+                
         protected AudioClip Clip
         {
             get { return baseSource.clip; }
             set { baseSource.clip = value; }
         }
 
-        protected virtual System.Action PlayAudioBeforeOnComplete(AudioArgs args)
-        {
-            System.Action origOnComplete = args.OnComplete;
-            System.Action result = () =>
-            {
-                PlayRightAway(args);
-                origOnComplete();
-            };
-
-            return result;
-        }
-
-        protected virtual System.Action ChangeSettingsBeforeOnComplete(AudioArgs args)
-        {
-            System.Action origOnComplete = args.OnComplete;
-            System.Action result = () =>
-            {
-                ChangeSettingsAsAppropriate(args);
-                origOnComplete();
-            };
-
-            return result;
-        }
-
-        protected virtual void ChangeSettingsAsAppropriate(AudioArgs args)
+        protected virtual void UpdateSettings(AudioArgs args)
         {
             if (args.WantsVolumeSet)
-                CurrentVol = args.Volume;
+                CurrentVolume = args.TargetVolume;
+            else
+                CurrentVolume = args.StartingVolume;
 
             if (args.WantsPitchSet)
                 CurrentPitch = args.Pitch;
+            else
+                CurrentPitch = args.StartingPitch;
 
-            if (args.WantsClipPlayed && args.Loop)
-                Clip = args.Clip;
-        }
-
-        protected virtual void PlayRightAway(AudioArgs args)
-        {
             AtTime = args.AtTime;
             // ^ May be inaccurate if the audio source is compressed http://docs.unity3d.com/ScriptReference/AudioSource-time.html BK
 
@@ -94,13 +95,19 @@ namespace CGT.FungusExt.Audio
             {
                 Clip = args.Clip;
                 Loop = true;
-                baseSource.Play();
             }
+        }
+
+        protected virtual void PlayWithoutDelay(AudioArgs args)
+        {
+            if (args.Loop)
+                baseSource.Play();
+
             else
                 baseSource.PlayOneShot(args.Clip);
         }
 
-        public virtual float CurrentVol
+        public virtual float CurrentVolume
         {
             get { return baseSource.volume; }
             protected set { baseSource.volume = value; }
@@ -114,20 +121,33 @@ namespace CGT.FungusExt.Audio
 
         protected virtual void FadeVolume(AudioArgs args)
         {
-            float startingVolume = CurrentVol, targetVolume = args.Volume;
+            float startingVolume = CurrentVolume, targetVolume = args.TargetVolume;
+
+            System.Action onComplete = () =>
+            {
+                bool shouldReturnToStartingVolume = !args.WantsVolumeSet;
+                if (shouldReturnToStartingVolume)
+                    CurrentVolume = startingVolume;
+
+                args.OnComplete(args);
+            };
+
             LeanTween.value(gameObject, startingVolume, targetVolume, args.FadeDuration)
                 .setOnUpdate(TweenVolume)
-                .setOnComplete(args.OnComplete);
+                .setOnComplete(onComplete);
         }
 
         protected virtual void TweenVolume(float newVol)
         {
-            CurrentVol = newVol;
+            CurrentVolume = newVol;
         }
 
         public virtual void SetVolume(AudioArgs args)
         {
-            float startingVolume = CurrentVol;
+            if (!args.WantsVolumeSet)
+                return;
+
+            CorrectStartingValsAsNeeded(args);
 
             if (args.WantsFade)
             {
@@ -135,35 +155,46 @@ namespace CGT.FungusExt.Audio
             }
             else
             {
-                CurrentVol = args.Volume;
-                args.OnComplete();
+                SetVolumeWithoutDelay(args);
+                args.OnComplete(args);
             }
         }
 
-        protected virtual void SetVolumeRightAway(AudioArgs args)
+        protected virtual void SetVolumeWithoutDelay(AudioArgs args)
         {
-            CurrentVol = args.Volume;
+            CurrentVolume = args.TargetVolume;
         }
 
         public virtual void SetPitch(AudioArgs args)
         {
+            if (!args.WantsPitchSet)
+                return;
+
+            CorrectStartingValsAsNeeded(args);
+
             if (args.WantsFade)
             {
                 FadePitch(args);
             }
             else
             {
-                baseSource.pitch = args.Pitch;
-                args.OnComplete();
+                SetPitchWithoutDelay(args);
+                args.OnComplete(args);
             }
         }
 
         protected virtual void FadePitch(AudioArgs args)
         {
             float startingPitch = CurrentPitch, targetPitch = args.Pitch;
+            System.Action onComplete = () =>
+            {
+                bool shouldReturnToStartingPitch = !args.WantsPitchSet;
+                if (shouldReturnToStartingPitch)
+                    CurrentPitch = startingPitch;
+            };
             LeanTween.value(gameObject, startingPitch, targetPitch, args.FadeDuration)
                 .setOnUpdate(TweenPitch)
-                .setOnComplete(args.OnComplete);
+                .setOnComplete(onComplete);
         }
 
         protected virtual void TweenPitch(float newPitch)
@@ -171,7 +202,7 @@ namespace CGT.FungusExt.Audio
             baseSource.pitch = newPitch;
         }
 
-        protected virtual void SetPitchRightAway(AudioArgs args)
+        protected virtual void SetPitchWithoutDelay(AudioArgs args)
         {
             CurrentPitch = args.Pitch;
         }

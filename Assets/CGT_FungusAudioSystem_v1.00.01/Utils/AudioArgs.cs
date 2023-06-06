@@ -4,6 +4,21 @@ namespace CGT.FungusExt.Audio
 {
     public class AudioArgs
     {
+
+        /// <summary>
+        /// The volume setting from before the audio operation involving these args
+        /// gets carried out. Don't change this if you want the system to figure
+        /// it out itself.
+        /// </summary>
+        public virtual float StartingVolume { get; set; } = -1;
+
+        /// <summary>
+        /// The pitch setting from before the audio operation involving these args
+        /// gets carried out. Don't change this if you want the system to figure
+        /// it out itself.
+        /// </summary>
+        public virtual float StartingPitch { get; set; } = -1;
+
         public virtual bool WantsClipPlayed { get { return Clip != null; } }
         public virtual AudioClip Clip { get; set; }
 
@@ -12,7 +27,7 @@ namespace CGT.FungusExt.Audio
         /// <summary>
         /// To avoid weirdness, best keep this between 0 and 1
         /// </summary>
-        public virtual float Volume { get; set; }
+        public virtual float TargetVolume { get; set; }
 
         public virtual bool WantsFade
         {
@@ -32,9 +47,8 @@ namespace CGT.FungusExt.Audio
         /// <summary>
         /// By default a func that does nothing.
         /// </summary>
-        public virtual System.Action OnComplete { get; set; } = () => { };
+        public virtual AudioHandler OnComplete { get; set; } = (AudioArgs args) => { };
 
-        public virtual AudioSource TargetAudioSource { get; set; }
 
     }
 }
