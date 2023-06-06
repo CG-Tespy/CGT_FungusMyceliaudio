@@ -45,7 +45,6 @@ namespace CGT.FungusExt.Audio
             AudioArgs args = new AudioArgs();
             args.WantsVolumeSet = true;
             args.WantsPitchSet = false;
-            args.StartingVolume = RelevantStartingVolume;
             args.TargetVolume = Mathf.Clamp(volumeInput, 0f, 1);
             // ^ Sound playback might get funky if you set it to a value higher than 1, so...
             args.FadeDuration = Mathf.Max(0, fadeDuration);

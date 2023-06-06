@@ -213,12 +213,6 @@ namespace CGT.FungusExt.Audio
             set { baseSource.loop = value; }
         }
 
-        protected virtual bool PlayOnAwake
-        {
-            get { return baseSource.playOnAwake; }
-            set { baseSource.playOnAwake = value; }
-        }
-    
         protected virtual float AtTime
         {
             get { return baseSource.time; }

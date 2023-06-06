@@ -56,6 +56,7 @@ namespace CGT.FungusExt.Audio
             }
         }
 
+
         public override Color GetButtonColor()
         {
             return audioCommandColor;
@@ -63,4 +64,5 @@ namespace CGT.FungusExt.Audio
 
         protected static Color32 audioCommandColor = new Color32(242, 209, 176, 255);
     }
+
 }
