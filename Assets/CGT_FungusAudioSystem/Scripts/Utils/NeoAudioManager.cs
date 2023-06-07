@@ -1,4 +1,5 @@
 using UnityEngine;
+using CGT.FungusExt.Audio.Internal;
 
 namespace CGT.FungusExt.Audio
 {

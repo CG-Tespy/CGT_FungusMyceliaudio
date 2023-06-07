@@ -2,23 +2,8 @@ using UnityEngine;
 
 namespace CGT.FungusExt.Audio
 {
-    public class AudioArgs
+    public class AudioArgs : System.EventArgs
     {
-
-        /// <summary>
-        /// The volume setting from before the audio operation involving these args
-        /// gets carried out. Don't change this if you want the system to figure
-        /// it out itself.
-        /// </summary>
-        public virtual float StartingVolume { get; set; } = -1;
-
-        /// <summary>
-        /// The pitch setting from before the audio operation involving these args
-        /// gets carried out. Don't change this if you want the system to figure
-        /// it out itself.
-        /// </summary>
-        public virtual float StartingPitch { get; set; } = -1;
-
         public virtual bool WantsClipPlayed { get { return Clip != null; } }
         public virtual AudioClip Clip { get; set; }
 
@@ -49,6 +34,24 @@ namespace CGT.FungusExt.Audio
         /// </summary>
         public virtual AudioHandler OnComplete { get; set; } = (AudioArgs args) => { };
 
+        public AudioArgs() { }
 
+        public static AudioArgs CreateCopy(AudioArgs source)
+        {
+            AudioArgs theCopy = new AudioArgs();
+
+            theCopy.Clip = source.Clip;
+            theCopy.WantsVolumeSet = source.WantsVolumeSet;
+            theCopy.TargetVolume = source.TargetVolume;
+            theCopy.FadeDuration = source.FadeDuration;
+            theCopy.WantsPitchSet = source.WantsPitchSet;
+            theCopy.Pitch = source.Pitch;
+            theCopy.Loop = source.Loop;
+            theCopy.AtTime = source.AtTime;
+            theCopy.OnComplete = source.OnComplete;
+
+            return theCopy;
+            
+        }
     }
 }

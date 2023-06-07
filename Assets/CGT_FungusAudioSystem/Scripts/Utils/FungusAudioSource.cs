@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Audio.Internal
 {
     /// <summary>
     /// Helper class for NeoAudioManager that also kind of wraps Unity's built-in AudioSource component
@@ -25,18 +25,30 @@ namespace CGT.FungusExt.Audio
 
         public virtual void Play(AudioArgs args)
         {
+            InternalAudioArgs converted = ToInternal(args);
+            Play(converted);
+        }
+
+        protected virtual InternalAudioArgs ToInternal(AudioArgs source)
+        {
+            InternalAudioArgs result = InternalAudioArgs.CreateCopy(source);
+            result.StartingVolume = CurrentVolume;
+            result.StartingPitch = CurrentPitch;
+
+            return result;
+        }
+
+        protected virtual void Play(InternalAudioArgs args)
+        {
             if (!args.WantsClipPlayed)
                 return;
 
-            CorrectStartingValsAsNeeded(args);
-
             if (args.WantsFade) // The only fade we'll consider is for volume
             {
-                // We want the fading to happen first, then make sure the delayless
-                // play operations happen
                 args.OnComplete = SetBeforeOnComplete(args, PlayWithoutDelay);
                 args.OnComplete = SetBeforeOnComplete(args, UpdateSettings);
-                // ^ They're in this order so that the settings are updated before the play
+                // ^ They're in this order so that the settings are updated right
+                // after the fade and right before the sound-playing
                 FadeVolume(args);
             }
             else
@@ -47,36 +59,30 @@ namespace CGT.FungusExt.Audio
             }
         }
 
-        protected virtual void CorrectStartingValsAsNeeded(AudioArgs args)
+        /// <returns>
+        /// A version of the args' OnComplete that has the passed toExecute
+        /// executing first
+        /// </returns>
+        protected virtual InternalAudioHandler SetBeforeOnComplete(InternalAudioArgs args,
+            InternalAudioHandler toExecute)
         {
-            // Since we don't want the client to always worry about the starting
-            // values.
-            if (args.StartingVolume < 0)
-                args.StartingVolume = CurrentVolume;
-            if (args.StartingPitch < 0)
-                args.StartingPitch = CurrentPitch;
-        }
-
-        /// <returns>A version of the args' OnComplete that has the passed toExecute executing first</returns>
-        protected virtual AudioHandler SetBeforeOnComplete(AudioArgs args, AudioHandler toExecute)
-        {
-            AudioHandler onComplete = args.OnComplete;
-            AudioHandler result = (AudioArgs maybeOtherArgs) =>
+            InternalAudioHandler origOnComplete = args.OnComplete;
+            InternalAudioHandler result = (InternalAudioArgs maybeOtherArgs) =>
             {
                 toExecute(maybeOtherArgs);
-                onComplete(maybeOtherArgs);
+                origOnComplete(maybeOtherArgs);
             };
 
             return result;
         }
-                
+        
         protected AudioClip Clip
         {
             get { return baseSource.clip; }
             set { baseSource.clip = value; }
         }
 
-        protected virtual void UpdateSettings(AudioArgs args)
+        protected virtual void UpdateSettings(InternalAudioArgs args)
         {
             if (args.WantsVolumeSet)
                 CurrentVolume = args.TargetVolume;
@@ -102,7 +108,6 @@ namespace CGT.FungusExt.Audio
         {
             if (args.Loop)
                 baseSource.Play();
-
             else
                 baseSource.PlayOneShot(args.Clip);
         }
@@ -119,22 +124,15 @@ namespace CGT.FungusExt.Audio
             protected set { baseSource.pitch = value; }
         }
 
-        protected virtual void FadeVolume(AudioArgs args)
+        protected virtual void FadeVolume(InternalAudioArgs args)
         {
-            float startingVolume = CurrentVolume, targetVolume = args.TargetVolume;
+            float startingVolume = args.StartingVolume, targetVolume = args.TargetVolume;
 
-            System.Action onComplete = () =>
-            {
-                bool shouldReturnToStartingVolume = !args.WantsVolumeSet;
-                if (shouldReturnToStartingVolume)
-                    CurrentVolume = startingVolume;
-
-                args.OnComplete(args);
-            };
+            System.Action whenDoneFading = () => { args.OnComplete(args); };
 
             LeanTween.value(gameObject, startingVolume, targetVolume, args.FadeDuration)
                 .setOnUpdate(TweenVolume)
-                .setOnComplete(onComplete);
+                .setOnComplete(whenDoneFading);
         }
 
         protected virtual void TweenVolume(float newVol)
@@ -144,10 +142,14 @@ namespace CGT.FungusExt.Audio
 
         public virtual void SetVolume(AudioArgs args)
         {
+            InternalAudioArgs converted = ToInternal(args);
+            SetVolume(converted);
+        }
+
+        protected virtual void SetVolume(InternalAudioArgs args)
+        {
             if (!args.WantsVolumeSet)
                 return;
-
-            CorrectStartingValsAsNeeded(args);
 
             if (args.WantsFade)
             {
@@ -167,10 +169,14 @@ namespace CGT.FungusExt.Audio
 
         public virtual void SetPitch(AudioArgs args)
         {
+            InternalAudioArgs converted = ToInternal(args);
+            SetPitch(converted);
+        }
+
+        protected virtual void SetPitch(InternalAudioArgs args)
+        {
             if (!args.WantsPitchSet)
                 return;
-
-            CorrectStartingValsAsNeeded(args);
 
             if (args.WantsFade)
             {
@@ -183,7 +189,7 @@ namespace CGT.FungusExt.Audio
             }
         }
 
-        protected virtual void FadePitch(AudioArgs args)
+        protected virtual void FadePitch(InternalAudioArgs args)
         {
             float startingPitch = CurrentPitch, targetPitch = args.Pitch;
             System.Action onComplete = () =>
@@ -202,7 +208,7 @@ namespace CGT.FungusExt.Audio
             baseSource.pitch = newPitch;
         }
 
-        protected virtual void SetPitchWithoutDelay(AudioArgs args)
+        protected virtual void SetPitchWithoutDelay(InternalAudioArgs args)
         {
             CurrentPitch = args.Pitch;
         }
