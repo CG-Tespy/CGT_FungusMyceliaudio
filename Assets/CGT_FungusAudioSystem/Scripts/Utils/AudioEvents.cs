@@ -4,18 +4,15 @@ namespace CGT.FungusExt.Audio
     {
         public static event AudioHandler PlayMusic = delegate { },
             PlaySFX = delegate { },
-            PlayAmbiance = delegate { },
 
             SetMusicVol = delegate { },
             SetSFXVol = delegate { },
-            SetAmbienceVol = delegate { },
 
             SetMusicPitch = delegate { },
             SetSFXPitch = delegate { },
-            SetAmbiancePitch = delegate { },
 
             StopMusic = delegate { },
-            StopAmbiance = delegate { };
+            StopSFX = delegate { };
             
         public static void TriggerPlayMusic(AudioArgs args)
         {
@@ -25,11 +22,6 @@ namespace CGT.FungusExt.Audio
         public static void TriggerPlaySFX(AudioArgs args)
         {
             PlaySFX.Invoke(args);
-        }
-
-        public static void TriggerPlayAmbiance(AudioArgs args)
-        {
-            PlayAmbiance.Invoke(args);
         }
 
         public static void TriggerSetMusicVolume(AudioArgs args)
@@ -42,9 +34,5 @@ namespace CGT.FungusExt.Audio
             SetSFXVol.Invoke(args);
         }
 
-        public static void TriggerSetAmbienceVolume(AudioArgs args)
-        {
-            SetAmbienceVol.Invoke(args);
-        }
     }
 }

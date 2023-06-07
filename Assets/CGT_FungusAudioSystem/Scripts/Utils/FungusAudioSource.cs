@@ -11,15 +11,15 @@ namespace CGT.FungusExt.Audio.Internal
 
         public FungusAudioSource(GameObject toWorkWith)
         {
-            gameObject = toWorkWith;
+            forTweens = toWorkWith;
             SetUpAudioSource();
         }
 
-        protected GameObject gameObject;
+        protected GameObject forTweens; // So we can pull off tweens
 
         protected virtual void SetUpAudioSource()
         {
-            baseSource = gameObject.AddComponent<AudioSource>();
+            baseSource = forTweens.AddComponent<AudioSource>();
             baseSource.playOnAwake = false;
         }
 
@@ -124,13 +124,19 @@ namespace CGT.FungusExt.Audio.Internal
             protected set { baseSource.pitch = value; }
         }
 
+        public virtual void FadeVolume(AudioArgs args)
+        {
+            InternalAudioArgs converted = ToInternal(args);
+            FadeVolume(converted);
+        }
+
         protected virtual void FadeVolume(InternalAudioArgs args)
         {
             float startingVolume = args.StartingVolume, targetVolume = args.TargetVolume;
 
             System.Action whenDoneFading = () => { args.OnComplete(args); };
 
-            LeanTween.value(gameObject, startingVolume, targetVolume, args.FadeDuration)
+            LeanTween.value(forTweens, startingVolume, targetVolume, args.FadeDuration)
                 .setOnUpdate(TweenVolume)
                 .setOnComplete(whenDoneFading);
         }
@@ -198,7 +204,7 @@ namespace CGT.FungusExt.Audio.Internal
                 if (shouldReturnToStartingPitch)
                     CurrentPitch = startingPitch;
             };
-            LeanTween.value(gameObject, startingPitch, targetPitch, args.FadeDuration)
+            LeanTween.value(forTweens, startingPitch, targetPitch, args.FadeDuration)
                 .setOnUpdate(TweenPitch)
                 .setOnComplete(onComplete);
         }

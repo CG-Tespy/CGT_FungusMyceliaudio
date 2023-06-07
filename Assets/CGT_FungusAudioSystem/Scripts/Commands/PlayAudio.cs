@@ -5,10 +5,10 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "PlayAudio",
-        "Plays an audio clip of the type of your choosing")]
+        "Plays an audio clip in the given channel")]
     public class PlayAudio : AudioCommand
     {
-        [SerializeField] protected AudioClip clip;
+        [SerializeField] protected ObjectData clip = new ObjectData(null);
 
         [Tooltip("Time to be playing in seconds. If the audio's compressed, this may not be accurate")]
         [SerializeField] protected FloatData atTime = new FloatData(0);
@@ -33,18 +33,17 @@ namespace CGT.FungusExt.Audio
             }
             else
             {
-                PointOutLackOfClip();
+                PointOutClipInvalidity();
             }
-
         }
 
-        protected virtual bool ValidClip { get { return clip != null; } }
+        protected virtual bool ValidClip { get { return clip.Value is AudioClip; } }
 
         protected virtual AudioArgs GetAudioArgs()
         {
             AudioArgs args = new AudioArgs();
             args.WantsVolumeSet = args.WantsPitchSet = false;
-            args.Clip = clip;
+            args.Clip = (AudioClip) clip.Value;
             args.AtTime = atTime;
             args.Loop = loop;
             args.FadeDuration = fadeDuration;
@@ -56,23 +55,23 @@ namespace CGT.FungusExt.Audio
             return args;
         }
 
-        protected virtual void PointOutLackOfClip()
+        protected virtual void PointOutClipInvalidity()
         {
             // To make debugging easier for the user
             string flowchartName = gameObject.name;
             string blockName = ParentBlock.BlockName;
             int index = CommandIndex;
 
-            string errorMessage = $"Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index} has no AudioClip assigned to it.";
+            string errorMessage = $"PlayAudio Command invalid in Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index}. Reason: No valid AudioClip assigned";
             Debug.LogWarning(errorMessage);
         }
 
         public override string GetSummary()
         {
-            if (clip == null)
+            if (!ValidClip)
                 return "Needs a clip!";
 
-            string result = $"{audioType} {clip.name} at time {atTime.Value}s";
+            string result = $"{audioType} {clip.Value.name} @ {atTime.Value}s";
             return result;
         }
 

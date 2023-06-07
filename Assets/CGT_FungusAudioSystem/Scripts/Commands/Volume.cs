@@ -27,16 +27,17 @@ namespace CGT.FungusExt.Audio
         {
             base.OnEnter();
 
+            AudioArgs args = DecideAudioArgs();
+
             if (action == GetOrSet.Set)
             {
-                AudioArgs args = DecideAudioArgs();
-                var setVol = setVolEvents[audioType];
-                setVol(args);
+                HandleSetOperation(args);
             }
-            else if (OutputIsValid)
+            else 
             {
-                GiveOutputDesiredValue();
+                HandleGetOperation(args);
                 Continue();
+                
             }
         }
 
@@ -48,6 +49,7 @@ namespace CGT.FungusExt.Audio
             args.TargetVolume = Mathf.Clamp(volumeInput, 0f, 1);
             // ^ Sound playback might get funky if you set it to a value higher than 1, so...
             args.FadeDuration = Mathf.Max(0, fadeDuration);
+            args.Channel = this.channel;
 
             args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
             // ^OnComplete will always be called right after the volume's done adjusting, be it
@@ -56,15 +58,15 @@ namespace CGT.FungusExt.Audio
             return args;
         }
 
-        protected virtual bool OutputIsValid { get { return output != null; } }
-
-        protected virtual void GiveOutputDesiredValue()
+        protected virtual void HandleSetOperation(AudioArgs args)
         {
-            var getter = volumeGetters[audioType];
-            getter();
+            var setVol = setVolEvents[audioType];
+            setVol(args);
         }
 
-        protected Dictionary<AudioType, System.Action> volumeGetters = new Dictionary<AudioType, System.Action>();
+
+        protected Dictionary<AudioType, System.Action<AudioArgs>> volumeGetters = 
+            new Dictionary<AudioType, System.Action<AudioArgs>>();
 
         protected override void Awake()
         {
@@ -76,22 +78,46 @@ namespace CGT.FungusExt.Audio
         {
             volumeGetters[AudioType.Music] = GetMusicVolume;
             volumeGetters[AudioType.SFX] = GetSFXVolume;
-            volumeGetters[AudioType.Ambience] = GetAmbienceVolume;
         }
 
-        protected virtual void GetMusicVolume()
+        protected virtual void GetMusicVolume(AudioArgs args)
         {
-            output.Value = AudioManager.MusicVolume;
+            output.Value = AudioSys.GetMusicVolume(args);
         }
 
-        protected virtual void GetSFXVolume()
+        protected virtual void GetSFXVolume(AudioArgs args)
         {
-            output.Value = AudioManager.SFXVolume;
+            output.Value = AudioSys.GetSFXVolume(args);
         }
 
-        protected virtual void GetAmbienceVolume()
+        protected virtual void HandleGetOperation(AudioArgs args)
         {
-            output.Value = AudioManager.AmbienceVolume;
+            if (!OutputIsValid)
+            {
+                AlertForInvalidOutput();
+            }
+            else
+            {
+                SetOutputToDesiredValue(args);
+            }
+        }
+
+        protected virtual bool OutputIsValid { get { return output != null; } }
+
+        protected virtual void AlertForInvalidOutput()
+        {
+            string flowchartName = GetFlowchart().name;
+            string blockName = ParentBlock.BlockName;
+            int index = this.CommandIndex;
+            string errorMessage = $"PlayAudio invalid in Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index}. Reason: No valid output var assigned for Get operation";
+
+            Debug.LogError(errorMessage);
+        }
+
+        protected virtual void SetOutputToDesiredValue(AudioArgs args)
+        {
+            var getter = volumeGetters[audioType];
+            getter(args);
         }
 
         public override string GetSummary()

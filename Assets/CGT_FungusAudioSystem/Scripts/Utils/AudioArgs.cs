@@ -29,6 +29,8 @@ namespace CGT.FungusExt.Audio
 
         public virtual float AtTime { get; set; }
 
+        public virtual int Channel { get; set; }
+
         /// <summary>
         /// By default a func that does nothing.
         /// </summary>
@@ -48,6 +50,7 @@ namespace CGT.FungusExt.Audio
             theCopy.Pitch = source.Pitch;
             theCopy.Loop = source.Loop;
             theCopy.AtTime = source.AtTime;
+            theCopy.Channel = source.Channel;
             theCopy.OnComplete = source.OnComplete;
 
             return theCopy;
