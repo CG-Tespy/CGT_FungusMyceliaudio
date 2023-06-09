@@ -1,5 +1,6 @@
 using UnityEngine;
 using Fungus;
+using StringBuilder = System.Text.StringBuilder;
 
 namespace CGT.FungusExt.Audio
 {
@@ -72,17 +73,17 @@ namespace CGT.FungusExt.Audio
             if (!ValidClip)
                 return "Error: No clip given";
 
-            string result = $"{audioType} ";
+            forSummary.Clear();
+            forSummary.Append($"{audioType} Ch {channel.Value} {clip.Value.name} ");
 
-            bool goWithChannelVar = channel.integerRef != null;
-            if (goWithChannelVar)
-                result += $"{channel.integerRef.Key} ";
-            else
-                result += $"Ch {channel.Value} ";
+            bool wantsPlayAtTime = atTime.Value >= 0;
+            if (wantsPlayAtTime)
+                forSummary.Append($"@ {atTime.Value}s");
 
-            result += $"{clip.Value.name} @ {atTime.Value}s";
-            return result;
+            return forSummary.ToString();
         }
+
+        protected StringBuilder forSummary = new StringBuilder();
 
     }
 }

@@ -126,15 +126,22 @@ namespace CGT.FungusExt.Audio
         public override string GetSummary()
         {
             forSummary.Clear();
-            forSummary.Append($"{action} {audioType} Ch {channel.Value} to ");
+            if (fadeDuration > 0)
+                forSummary.Append("Fade ");
+            else
+                forSummary.Append($"{action} ");
+
+            forSummary.Append($"Ch {channel.Value} {audioType} ");
 
             if (action == GetOrSet.Set)
             {
+                forSummary.Append("to ");
+
                 bool goWithVolumeVar = volumeInput.floatRef != null;
                 if (goWithVolumeVar)
                     forSummary.Append($"{volumeInput.floatRef.Key}");
                 else
-                    forSummary.Append($"to {volumeInput.Value}");
+                    forSummary.Append($"{volumeInput.Value}");
             }
             else
             {
