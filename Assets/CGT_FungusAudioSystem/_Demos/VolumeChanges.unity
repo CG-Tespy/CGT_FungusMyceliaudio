@@ -6583,7 +6583,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2093348799}
   selectedCommands:
-  - {fileID: 2093348793}
+  - {fileID: 2093348797}
   variables:
   - {fileID: 2093348764}
   - {fileID: 2093348777}
@@ -7717,7 +7717,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571533}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348802}
+    floatRef: {fileID: 2093348760}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -7761,7 +7761,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571533}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348802}
+    floatRef: {fileID: 2093348760}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -7804,7 +7804,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348802}
+    floatRef: {fileID: 2093348760}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -7975,7 +7975,7 @@ MonoBehaviour:
     objectVal: {fileID: 0}
   atTime:
     floatRef: {fileID: 0}
-    floatVal: 0
+    floatVal: -1
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -8150,7 +8150,7 @@ MonoBehaviour:
     objectVal: {fileID: 0}
   atTime:
     floatRef: {fileID: 0}
-    floatVal: 0
+    floatVal: -1
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -8285,7 +8285,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348802}
+    floatRef: {fileID: 2093348760}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -8308,7 +8308,7 @@ MonoBehaviour:
   value: 0.25
 --- !u!114 &2093348802
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

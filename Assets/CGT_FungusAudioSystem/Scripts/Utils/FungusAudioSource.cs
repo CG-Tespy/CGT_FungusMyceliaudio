@@ -22,7 +22,6 @@ namespace CGT.FungusExt.Audio.Internal
             baseSource = forTweens.AddComponent<AudioSource>();
             baseSource.playOnAwake = false;
             baseSource.volume = 0;
-
         }
 
         public virtual void Play(AudioArgs args)
@@ -88,7 +87,7 @@ namespace CGT.FungusExt.Audio.Internal
         {
             if (args.WantsVolumeSet && !tweeningVolume)
                 SetVolumeWithoutDelay(args);
-            else if (!args.TweeningVolume)
+            else if (!tweeningVolume)
                 CurrentVolume = args.StartingVolume;
 
             if (args.WantsPitchSet && !tweeningPitch)
@@ -96,10 +95,12 @@ namespace CGT.FungusExt.Audio.Internal
             else if (!tweeningPitch)
                 CurrentPitch = args.StartingPitch;
 
-            AtTime = args.AtTime;
-            // ^ May be inaccurate if the audio source is compressed http://docs.unity3d.com/ScriptReference/AudioSource-time.html BK
+            if (args.WantsPlayAtNewTime)
+                AtTime = args.AtTime;
+                // ^ May be inaccurate if the audio source is compressed http://docs.unity3d.com/ScriptReference/AudioSource-time.html BK
 
-            if (args.Loop)
+            bool wantsToPlayNewClipOnLoop = args.Loop && args.WantsClipPlayed && Clip != args.Clip;
+            if (wantsToPlayNewClipOnLoop)
             {
                 Clip = args.Clip;
                 Loop = true;
@@ -213,11 +214,11 @@ namespace CGT.FungusExt.Audio.Internal
         protected virtual void FadePitch(InternalAudioArgs args)
         {
             float startingPitch = CurrentPitch, targetPitch = args.Pitch;
-            args.TweeningPitch = true;
+            tweeningPitch = true;
 
             System.Action onComplete = () =>
             {
-                args.TweeningPitch = false;
+                tweeningPitch = false;
                 args.OnComplete(args);
             };
             LeanTween.value(forTweens, startingPitch, targetPitch, args.FadeDuration)

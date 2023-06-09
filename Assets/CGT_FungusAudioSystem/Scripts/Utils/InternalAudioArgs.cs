@@ -9,8 +9,6 @@
     {
         public virtual float StartingVolume { get; set; } = 0;
         public virtual float StartingPitch { get; set; } = 0;
-        public virtual bool TweeningVolume { get; set; }
-        public virtual bool TweeningPitch { get; set; }
         public virtual new InternalAudioHandler OnComplete { get; set; } =
             (InternalAudioArgs args) => { };
 

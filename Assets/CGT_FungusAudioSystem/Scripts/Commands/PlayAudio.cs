@@ -10,7 +10,7 @@ namespace CGT.FungusExt.Audio
     {
         [SerializeField] protected ObjectData clip = new ObjectData(null);
 
-        [Tooltip("Time to be playing in seconds. If the audio's compressed, this may not be accurate")]
+        [Tooltip("Time to be playing in seconds. If the audio's compressed, this may not be accurate. If you dont want the time to change, set this to a negative number.")]
         [SerializeField] protected FloatData atTime = new FloatData(0);
 
         [SerializeField] protected BooleanData loop = new BooleanData(false);

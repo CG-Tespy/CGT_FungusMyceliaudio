@@ -28,6 +28,10 @@ namespace CGT.FungusExt.Audio
         public virtual bool Loop { get; set; }
 
         public virtual float AtTime { get; set; }
+        public virtual bool WantsPlayAtNewTime
+        {
+            get { return WantsClipPlayed && AtTime >= 0; }
+        }
 
         public virtual int Channel { get; set; }
 
