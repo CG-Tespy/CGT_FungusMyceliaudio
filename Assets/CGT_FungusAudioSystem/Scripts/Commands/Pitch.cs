@@ -5,8 +5,9 @@ using Fungus;
 
 namespace CGT.FungusExt.Audio
 {
-    public class Pitch : MonoBehaviour
+    [AddComponentMenu("")]
+    public class Pitch : AudioCommand
     {
-        
+        [SerializeField] protected IntegerData channel = new IntegerData(0);
     }
 }

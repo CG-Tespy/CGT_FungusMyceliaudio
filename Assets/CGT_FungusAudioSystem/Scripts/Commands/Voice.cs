@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Voice : MonoBehaviour
+namespace CGT.FungusExt.Audio
 {
-    // Start is called before the first frame update
-    void Start()
+    [AddComponentMenu("")]
+    public class Voice : AudioCommand
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

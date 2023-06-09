@@ -7,15 +7,18 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "Volume",
-        "Lets you get or set the volume of music, sfx or ambiance.")]
+        "Lets you get or set the volume of music, sfx or voice.")]
+    [AddComponentMenu("")]
     public class Volume : AudioCommand
     {
+        [SerializeField] protected IntegerData channel = new IntegerData(0);
+
         public enum GetOrSet { Get, Set }
 
         [SerializeField] protected GetOrSet action = GetOrSet.Set;
 
         [Header("For Setting")]
-        [SerializeField] protected FloatData volumeInput = new FloatData(1f);
+        [SerializeField] protected FloatData targetVolume = new FloatData(1f);
         [SerializeField] protected FloatData fadeDuration = new FloatData(0f);
 
         [Tooltip("Whether or not this should wait for the fading to finish before moving to the next Command")]
@@ -49,7 +52,7 @@ namespace CGT.FungusExt.Audio
             AudioArgs args = new AudioArgs();
             args.WantsVolumeSet = true;
             args.WantsPitchSet = false;
-            args.TargetVolume = Mathf.Clamp(volumeInput, 0f, 1);
+            args.TargetVolume = Mathf.Clamp(targetVolume, AudioStatics.MinVolume, AudioStatics.MaxVolume);
             // ^ Sound playback might get funky if you set it to a value higher than 1, so...
             args.FadeDuration = Mathf.Max(0, fadeDuration);
             args.Channel = this.channel;
@@ -137,11 +140,11 @@ namespace CGT.FungusExt.Audio
             {
                 forSummary.Append("to ");
 
-                bool goWithVolumeVar = volumeInput.floatRef != null;
+                bool goWithVolumeVar = targetVolume.floatRef != null;
                 if (goWithVolumeVar)
-                    forSummary.Append($"{volumeInput.floatRef.Key}");
+                    forSummary.Append($"{targetVolume.floatRef.Key}");
                 else
-                    forSummary.Append($"{volumeInput.Value}");
+                    forSummary.Append($"{targetVolume.Value}");
             }
             else
             {

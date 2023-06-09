@@ -7,8 +7,11 @@ namespace CGT.FungusExt.Audio
     [CommandInfo("Audio/CGT",
         "PlayAudio",
         "Plays an audio clip in the given channel")]
+    [AddComponentMenu("")]
     public class PlayAudio : AudioCommand
     {
+        [SerializeField] protected IntegerData channel = new IntegerData(0);
+
         [SerializeField] protected ObjectData clip = new ObjectData(null);
 
         [Tooltip("Time to be playing in seconds. If the audio's compressed, this may not be accurate. If you dont want the time to change, set this to a negative number.")]

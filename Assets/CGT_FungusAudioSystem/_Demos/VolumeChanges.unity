@@ -1399,7 +1399,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1020830110
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   value: 0
 --- !u!114 &1020830111
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1503,7 +1503,6 @@ GameObject:
   - component: {fileID: 1247571533}
   - component: {fileID: 1247571544}
   - component: {fileID: 1247571543}
-  - component: {fileID: 1247571542}
   - component: {fileID: 1247571541}
   - component: {fileID: 1247571540}
   - component: {fileID: 1247571539}
@@ -1514,8 +1513,11 @@ GameObject:
   - component: {fileID: 1247571534}
   - component: {fileID: 1247571546}
   - component: {fileID: 1247571545}
+  - component: {fileID: 1247571547}
+  - component: {fileID: 1247571542}
+  - component: {fileID: 1247571548}
   m_Layer: 0
-  m_Name: VolumeSetting
+  m_Name: VolumeChanging
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1571,7 +1573,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
@@ -1615,7 +1617,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
@@ -1667,7 +1669,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -90.81215, y: 129.43005}
+  scrollPos: {x: 421.51642, y: 95.18348}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -1679,9 +1681,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1247571538}
+  - {fileID: 1247571468}
   selectedCommands:
-  - {fileID: 1247571537}
+  - {fileID: 1247571471}
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571470}
@@ -1695,6 +1697,9 @@ MonoBehaviour:
   - {fileID: 1247571533}
   - {fileID: 1247571544}
   - {fileID: 1247571543}
+  - {fileID: 1247571547}
+  - {fileID: 1247571542}
+  - {fileID: 1247571548}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -1754,7 +1759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 18
   indentLevel: 1
-  variable: {fileID: 1247571488}
+  variable: {fileID: 1247571544}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -1819,7 +1824,7 @@ MonoBehaviour:
   itemId: 17
   indentLevel: 0
   compareOperator: 2
-  variable: {fileID: 1247571488}
+  variable: {fileID: 1247571544}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -1896,7 +1901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 15
   indentLevel: 1
-  variable: {fileID: 1247571488}
+  variable: {fileID: 1247571544}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -1961,7 +1966,7 @@ MonoBehaviour:
   itemId: 14
   indentLevel: 0
   compareOperator: 3
-  variable: {fileID: 1247571488}
+  variable: {fileID: 1247571544}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -2096,8 +2101,8 @@ MonoBehaviour:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571488}
+  targetVolume:
+    floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
     floatRef: {fileID: 0}
@@ -2189,7 +2194,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2244,7 +2249,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 627.131
-    y: 42.864098
+    y: 41.494236
     width: 162.87668
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2256,9 +2261,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571487}
   - {fileID: 1247571486}
+  - {fileID: 1247571498}
   - {fileID: 1247571475}
   - {fileID: 1247571485}
-  - {fileID: 1247571498}
   - {fileID: 1247571536}
 --- !u!114 &1247571491
 MonoBehaviour:
@@ -2377,7 +2382,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2526,8 +2531,8 @@ MonoBehaviour:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571488}
+  targetVolume:
+    floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
     floatRef: {fileID: 0}
@@ -2640,7 +2645,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2677,9 +2682,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571504}
   - {fileID: 1247571503}
+  - {fileID: 1247571535}
   - {fileID: 1247571502}
   - {fileID: 1247571501}
-  - {fileID: 1247571535}
   - {fileID: 1247571500}
 --- !u!114 &1247571506
 MonoBehaviour:
@@ -2784,7 +2789,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2850,7 +2855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 46
   indentLevel: 1
-  variable: {fileID: 1247571517}
+  variable: {fileID: 1247571543}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -2915,7 +2920,7 @@ MonoBehaviour:
   itemId: 45
   indentLevel: 0
   compareOperator: 2
-  variable: {fileID: 1247571517}
+  variable: {fileID: 1247571543}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -2992,7 +2997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 43
   indentLevel: 1
-  variable: {fileID: 1247571517}
+  variable: {fileID: 1247571543}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -3057,7 +3062,7 @@ MonoBehaviour:
   itemId: 42
   indentLevel: 0
   compareOperator: 3
-  variable: {fileID: 1247571517}
+  variable: {fileID: 1247571543}
   booleanData:
     booleanRef: {fileID: 0}
     booleanVal: 0
@@ -3190,8 +3195,8 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571517}
+  targetVolume:
+    floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
     floatRef: {fileID: 0}
@@ -3304,7 +3309,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -3341,9 +3346,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571523}
   - {fileID: 1247571522}
+  - {fileID: 1247571519}
   - {fileID: 1247571521}
   - {fileID: 1247571520}
-  - {fileID: 1247571519}
   - {fileID: 1247571539}
 --- !u!114 &1247571525
 MonoBehaviour:
@@ -3420,8 +3425,8 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571517}
+  targetVolume:
+    floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
     floatRef: {fileID: 0}
@@ -3534,7 +3539,7 @@ MonoBehaviour:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 0
-  volumeInput:
+  targetVolume:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -3571,10 +3576,9 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571531}
   - {fileID: 1247571530}
+  - {fileID: 1247571534}
   - {fileID: 1247571529}
   - {fileID: 1247571528}
-  - {fileID: 1247571542}
-  - {fileID: 1247571534}
   - {fileID: 1247571527}
 --- !u!114 &1247571533
 MonoBehaviour:
@@ -3864,61 +3868,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1247571467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 63
-  indentLevel: 0
-  variable: {fileID: 1247571543}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 1247571517}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
+  scope: 1
+  key: quickFade
+  value: 0.25
 --- !u!114 &1247571543
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4077,6 +4032,36 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &1247571547
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: noFade
+  value: 0
+--- !u!114 &1247571548
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: slowFade
+  value: 3
 --- !u!1 &1304208500
 GameObject:
   m_ObjectHideFlags: 0
@@ -6036,7 +6021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1247571474}
+  selectedFlowchart: {fileID: 2093348752}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -6467,14 +6452,11 @@ GameObject:
   - component: {fileID: 2093348764}
   - component: {fileID: 2093348763}
   - component: {fileID: 2093348762}
-  - component: {fileID: 2093348761}
   - component: {fileID: 2093348760}
   - component: {fileID: 2093348759}
   - component: {fileID: 2093348758}
   - component: {fileID: 2093348757}
-  - component: {fileID: 2093348756}
   - component: {fileID: 2093348755}
-  - component: {fileID: 2093348754}
   - component: {fileID: 2093348753}
   - component: {fileID: 2093348775}
   - component: {fileID: 2093348774}
@@ -6488,8 +6470,6 @@ GameObject:
   - component: {fileID: 2093348777}
   - component: {fileID: 2093348784}
   - component: {fileID: 2093348783}
-  - component: {fileID: 2093348780}
-  - component: {fileID: 2093348779}
   - component: {fileID: 2093348799}
   - component: {fileID: 2093348798}
   - component: {fileID: 2093348797}
@@ -6497,13 +6477,6 @@ GameObject:
   - component: {fileID: 2093348793}
   - component: {fileID: 2093348790}
   - component: {fileID: 2093348788}
-  - component: {fileID: 2093348787}
-  - component: {fileID: 2093348786}
-  - component: {fileID: 2093348785}
-  - component: {fileID: 2093348800}
-  - component: {fileID: 2093348789}
-  - component: {fileID: 2093348801}
-  - component: {fileID: 2093348802}
   - component: {fileID: 2093348808}
   - component: {fileID: 2093348807}
   - component: {fileID: 2093348806}
@@ -6518,8 +6491,14 @@ GameObject:
   - component: {fileID: 2093348781}
   - component: {fileID: 2093348772}
   - component: {fileID: 2093348769}
+  - component: {fileID: 2093348756}
+  - component: {fileID: 2093348754}
+  - component: {fileID: 2093348786}
+  - component: {fileID: 2093348780}
+  - component: {fileID: 2093348779}
+  - component: {fileID: 2093348761}
   m_Layer: 0
-  m_Name: MusicPlayng
+  m_Name: MusicPlaying
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6611,11 +6590,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 2.4929173, y: 6.2136145}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.97
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -6625,19 +6604,17 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2093348799}
   selectedCommands:
-  - {fileID: 2093348797}
+  - {fileID: 2093348761}
   variables:
   - {fileID: 2093348764}
   - {fileID: 2093348777}
   - {fileID: 2093348783}
   - {fileID: 2093348784}
-  - {fileID: 2093348761}
-  - {fileID: 2093348802}
   - {fileID: 2093348760}
   - {fileID: 2093348759}
   - {fileID: 2093348758}
-  - {fileID: 2093348786}
-  - {fileID: 2093348801}
+  - {fileID: 2093348780}
+  - {fileID: 2093348779}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -6671,61 +6648,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 8
+  itemId: 63
   indentLevel: 1
-  variable: {fileID: 2093348764}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2093348808}
+  startLabel:
     stringRef: {fileID: 0}
     stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
+  startIndex: 0
+  callMode: 2
 --- !u!114 &2093348755
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6748,13 +6682,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348777}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348761}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -6768,61 +6702,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 6
+  itemId: 62
   indentLevel: 1
-  variable: {fileID: 2093348764}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 2093348808}
+  startLabel:
     stringRef: {fileID: 0}
     stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
+  startIndex: 0
+  callMode: 2
 --- !u!114 &2093348757
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6891,12 +6782,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dc23ffa4178d674c9fb94332daf8426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
-  key: noFade
-  value: 0
+  itemId: 65
+  indentLevel: 1
+  audioType: 0
+  fadeOutCh:
+    integerRef: {fileID: 892317837}
+    integerVal: 0
+  fadeOutTargVol:
+    floatRef: {fileID: 1247571533}
+    floatVal: 0
+  fadeOutDuration:
+    floatRef: {fileID: 1247571548}
+    floatVal: 1
+  fadeInCh:
+    integerRef: {fileID: 892317836}
+    integerVal: 1
+  fadeInTargVol:
+    floatRef: {fileID: 1247571544}
+    floatVal: 0.25
+  fadeInDuration:
+    floatRef: {fileID: 1247571548}
+    floatVal: 1
+  waitForFade:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
 --- !u!114 &2093348762
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6919,13 +6831,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348784}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348761}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -7038,8 +6950,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 453
-    y: 118
-    width: 154
+    y: 117
+    width: 150.61855
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7049,13 +6961,11 @@ MonoBehaviour:
   eventHandler: {fileID: 2093348765}
   commandList:
   - {fileID: 2093348763}
-  - {fileID: 2093348762}
   - {fileID: 2093348756}
-  - {fileID: 2093348780}
+  - {fileID: 2093348762}
   - {fileID: 2093348757}
-  - {fileID: 2093348755}
   - {fileID: 2093348754}
-  - {fileID: 2093348779}
+  - {fileID: 2093348755}
   - {fileID: 2093348753}
 --- !u!114 &2093348767
 MonoBehaviour:
@@ -7128,13 +7038,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348777}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348760}
+    floatRef: {fileID: 1247571548}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348759}
@@ -7196,13 +7106,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348784}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348760}
+    floatRef: {fileID: 1247571548}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348759}
@@ -7287,7 +7197,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440
     y: 208
-    width: 184.4
+    width: 181.134
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -7371,61 +7281,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 25
-  indentLevel: 1
-  variable: {fileID: 2093348783}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
+  scope: 0
+  key: whereItAlreadyIs
+  value: -1
 --- !u!114 &2093348780
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7435,61 +7296,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 24
-  indentLevel: 1
-  variable: {fileID: 2093348783}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 1
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
+  scope: 0
+  key: theBeginning
+  value: 0
 --- !u!114 &2093348781
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7562,35 +7374,6 @@ MonoBehaviour:
   scope: 0
   key: secondSong
   value: {fileID: 8300000, guid: 0f17b836763812440a7d0e77c5b0e054, type: 3}
---- !u!114 &2093348785
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 40
-  indentLevel: 1
-  audioType: 0
-  channel:
-    integerRef: {fileID: 892317837}
-    integerVal: 0
-  action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571533}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 2093348760}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 2093348758}
-    booleanVal: 0
-  output: {fileID: 0}
 --- !u!114 &2093348786
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7600,41 +7383,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 2093348748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6dc23ffa4178d674c9fb94332daf8426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
-  key: silence
-  value: 0
---- !u!114 &2093348787
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 38
+  itemId: 64
   indentLevel: 1
   audioType: 0
-  channel:
+  fadeOutCh:
     integerRef: {fileID: 892317836}
     integerVal: 0
-  action: 1
-  volumeInput:
+  fadeOutTargVol:
     floatRef: {fileID: 1247571533}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 2093348760}
     floatVal: 0
+  fadeOutDuration:
+    floatRef: {fileID: 1247571548}
+    floatVal: 1
+  fadeInCh:
+    integerRef: {fileID: 892317837}
+    integerVal: 1
+  fadeInTargVol:
+    floatRef: {fileID: 1247571544}
+    floatVal: 0.25
+  fadeInDuration:
+    floatRef: {fileID: 1247571548}
+    floatVal: 1
   waitForFade:
-    booleanRef: {fileID: 2093348758}
+    booleanRef: {fileID: 0}
     booleanVal: 0
-  output: {fileID: 0}
 --- !u!114 &2093348788
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7649,35 +7424,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 2093348799}
   targetButton: {fileID: 2005090925}
---- !u!114 &2093348789
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 42
-  indentLevel: 1
-  audioType: 0
-  channel:
-    integerRef: {fileID: 892317836}
-    integerVal: 0
-  action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571544}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 2093348760}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 2093348758}
-    booleanVal: 0
-  output: {fileID: 0}
 --- !u!114 &2093348790
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -7792,13 +7538,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348777}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348779}
     floatVal: -1
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348761}
+    floatRef: {fileID: 0}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -7967,13 +7713,13 @@ MonoBehaviour:
     objectRef: {fileID: 2093348784}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348779}
     floatVal: -1
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 2093348761}
+    floatRef: {fileID: 0}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}
@@ -8058,7 +7804,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 432
     y: 285
-    width: 179.6
+    width: 175.36081
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -8069,74 +7815,13 @@ MonoBehaviour:
   commandList:
   - {fileID: 2093348798}
   - {fileID: 2093348772}
-  - {fileID: 2093348787}
-  - {fileID: 2093348800}
+  - {fileID: 2093348786}
   - {fileID: 2093348797}
   - {fileID: 2093348794}
   - {fileID: 2093348769}
-  - {fileID: 2093348785}
-  - {fileID: 2093348789}
+  - {fileID: 2093348761}
   - {fileID: 2093348793}
   - {fileID: 2093348790}
---- !u!114 &2093348800
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 41
-  indentLevel: 1
-  audioType: 0
-  channel:
-    integerRef: {fileID: 892317837}
-    integerVal: 0
-  action: 1
-  volumeInput:
-    floatRef: {fileID: 1247571544}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 2093348760}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 2093348758}
-    booleanVal: 0
-  output: {fileID: 0}
---- !u!114 &2093348801
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: quickFade
-  value: 0.25
---- !u!114 &2093348802
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: midFade
-  value: 1.5
 --- !u!114 &2093348803
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -8423,7 +8108,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 692
     y: 204
-    width: 170
+    width: 166.28865
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

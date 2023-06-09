@@ -6,10 +6,7 @@ namespace CGT.FungusExt.Audio
 {
     public abstract class AudioCommand : Command
     {
-        public enum AudioType { Music, SFX }
-
         [SerializeField] protected AudioType audioType;
-        [SerializeField] protected IntegerData channel;
 
         protected virtual void Awake()
         {
@@ -36,6 +33,7 @@ namespace CGT.FungusExt.Audio
         
         protected AudioSys AudioSys { get { return AudioSys.Instance; } }
 
+        protected static float minVolume = 0f, maxVolume = 1f, minPitch = -3f, maxPitch = 3f;
         public override Color GetButtonColor()
         {
             return audioCommandColor;
