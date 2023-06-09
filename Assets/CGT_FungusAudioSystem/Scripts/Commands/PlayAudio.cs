@@ -47,6 +47,7 @@ namespace CGT.FungusExt.Audio
             args.AtTime = atTime;
             args.Loop = loop;
             args.FadeDuration = fadeDuration;
+            args.Channel = channel;
 
             args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
             // ^OnComplete will always be called right after the target clip starts playing, be it
@@ -69,9 +70,17 @@ namespace CGT.FungusExt.Audio
         public override string GetSummary()
         {
             if (!ValidClip)
-                return "Needs a clip!";
+                return "Error: No clip given";
 
-            string result = $"{audioType} {clip.Value.name} @ {atTime.Value}s";
+            string result = $"{audioType} ";
+
+            bool goWithChannelVar = channel.integerRef != null;
+            if (goWithChannelVar)
+                result += $"{channel.integerRef.Key} ";
+            else
+                result += $"Ch {channel.Value} ";
+
+            result += $"{clip.Value.name} @ {atTime.Value}s";
             return result;
         }
 

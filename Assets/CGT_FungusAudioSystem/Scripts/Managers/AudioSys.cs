@@ -50,6 +50,7 @@ namespace CGT.FungusExt.Audio
             // We have separate game objects for the managers so we can check the
             // channel-counts and such in the Scene view
             GameObject holdsManager = new GameObject(name);
+            holdsManager.transform.SetParent(this.transform);
             AudioManager manager = new AudioManager(holdsManager);
             manager.Name = name;
             return manager;

@@ -21,6 +21,8 @@ namespace CGT.FungusExt.Audio.Internal
         {
             baseSource = forTweens.AddComponent<AudioSource>();
             baseSource.playOnAwake = false;
+            baseSource.volume = 0;
+
         }
 
         public virtual void Play(AudioArgs args)
@@ -84,14 +86,14 @@ namespace CGT.FungusExt.Audio.Internal
 
         protected virtual void UpdateSettings(InternalAudioArgs args)
         {
-            if (args.WantsVolumeSet)
-                CurrentVolume = args.TargetVolume;
-            else
+            if (args.WantsVolumeSet && !tweeningVolume)
+                SetVolumeWithoutDelay(args);
+            else if (!args.TweeningVolume)
                 CurrentVolume = args.StartingVolume;
 
-            if (args.WantsPitchSet)
-                CurrentPitch = args.Pitch;
-            else
+            if (args.WantsPitchSet && !tweeningPitch)
+                SetPitchWithoutDelay(args);
+            else if (!tweeningPitch)
                 CurrentPitch = args.StartingPitch;
 
             AtTime = args.AtTime;
@@ -102,6 +104,18 @@ namespace CGT.FungusExt.Audio.Internal
                 Clip = args.Clip;
                 Loop = true;
             }
+        }
+
+        protected bool tweeningVolume, tweeningPitch;
+
+        protected virtual void SetVolumeWithoutDelay(AudioArgs args)
+        {
+            CurrentVolume = args.TargetVolume;
+        }
+
+        protected virtual void SetPitchWithoutDelay(InternalAudioArgs args)
+        {
+            CurrentPitch = args.Pitch;
         }
 
         protected virtual void PlayWithoutDelay(AudioArgs args)
@@ -133,8 +147,13 @@ namespace CGT.FungusExt.Audio.Internal
         protected virtual void FadeVolume(InternalAudioArgs args)
         {
             float startingVolume = args.StartingVolume, targetVolume = args.TargetVolume;
+            tweeningVolume = true;
 
-            System.Action whenDoneFading = () => { args.OnComplete(args); };
+            System.Action whenDoneFading = () => 
+            {
+                tweeningVolume = false;
+                args.OnComplete(args);
+            };
 
             LeanTween.value(forTweens, startingVolume, targetVolume, args.FadeDuration)
                 .setOnUpdate(TweenVolume)
@@ -159,6 +178,7 @@ namespace CGT.FungusExt.Audio.Internal
 
             if (args.WantsFade)
             {
+                args.OnComplete = SetBeforeOnComplete(args, UpdateSettings);
                 FadeVolume(args);
             }
             else
@@ -166,11 +186,6 @@ namespace CGT.FungusExt.Audio.Internal
                 SetVolumeWithoutDelay(args);
                 args.OnComplete(args);
             }
-        }
-
-        protected virtual void SetVolumeWithoutDelay(AudioArgs args)
-        {
-            CurrentVolume = args.TargetVolume;
         }
 
         public virtual void SetPitch(AudioArgs args)
@@ -198,11 +213,12 @@ namespace CGT.FungusExt.Audio.Internal
         protected virtual void FadePitch(InternalAudioArgs args)
         {
             float startingPitch = CurrentPitch, targetPitch = args.Pitch;
+            args.TweeningPitch = true;
+
             System.Action onComplete = () =>
             {
-                bool shouldReturnToStartingPitch = !args.WantsPitchSet;
-                if (shouldReturnToStartingPitch)
-                    CurrentPitch = startingPitch;
+                args.TweeningPitch = false;
+                args.OnComplete(args);
             };
             LeanTween.value(forTweens, startingPitch, targetPitch, args.FadeDuration)
                 .setOnUpdate(TweenPitch)
@@ -212,11 +228,6 @@ namespace CGT.FungusExt.Audio.Internal
         protected virtual void TweenPitch(float newPitch)
         {
             baseSource.pitch = newPitch;
-        }
-
-        protected virtual void SetPitchWithoutDelay(InternalAudioArgs args)
-        {
-            CurrentPitch = args.Pitch;
         }
 
         protected virtual bool Loop
@@ -235,5 +246,6 @@ namespace CGT.FungusExt.Audio.Internal
         {
             baseSource.Stop();
         }
+    
     }
 }
