@@ -12,6 +12,7 @@ namespace CGT.FungusExt.Audio
         {
             AudioSys.EnsureExists();
             SetUpPlayEventDict();
+            SetUpStopEventDict();
             SetUpSetVolDict();
         }
 
@@ -22,6 +23,14 @@ namespace CGT.FungusExt.Audio
         }
 
         protected Dictionary<AudioType, AudioHandler> playEvents = new Dictionary<AudioType, AudioHandler>();
+
+        protected virtual void SetUpStopEventDict()
+        {
+            stopEvents[AudioType.Music] = AudioEvents.TriggerStopMusic;
+            stopEvents[AudioType.SFX] = AudioEvents.TriggerStopSFX;
+        }
+
+        protected Dictionary<AudioType, AudioHandler> stopEvents = new Dictionary<AudioType, AudioHandler>();
 
         protected virtual void SetUpSetVolDict()
         {

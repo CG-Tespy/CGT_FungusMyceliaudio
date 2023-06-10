@@ -12,9 +12,6 @@ namespace CGT.FungusExt.Audio
     public class Volume : AudioCommand
     {
         [SerializeField] protected IntegerData channel = new IntegerData(0);
-
-        public enum GetOrSet { Get, Set }
-
         [SerializeField] protected GetOrSet action = GetOrSet.Set;
 
         [Header("For Setting")]
@@ -69,7 +66,6 @@ namespace CGT.FungusExt.Audio
             var setVol = setVolEvents[audioType];
             setVol(args);
         }
-
 
         protected Dictionary<AudioType, System.Action<AudioArgs>> volumeGetters = 
             new Dictionary<AudioType, System.Action<AudioArgs>>();

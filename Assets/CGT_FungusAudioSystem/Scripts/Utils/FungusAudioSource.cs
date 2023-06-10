@@ -246,6 +246,7 @@ namespace CGT.FungusExt.Audio.Internal
         public virtual void Stop(AudioArgs args)
         {
             baseSource.Stop();
+            args.OnComplete(args);
         }
     
     }

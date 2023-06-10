@@ -34,5 +34,15 @@ namespace CGT.FungusExt.Audio
             SetSFXVol.Invoke(args);
         }
 
+        public static void TriggerStopMusic(AudioArgs args)
+        {
+            StopMusic.Invoke(args);
+        }
+
+        public static void TriggerStopSFX(AudioArgs args)
+        {
+            StopSFX.Invoke(args);
+        }
+
     }
 }

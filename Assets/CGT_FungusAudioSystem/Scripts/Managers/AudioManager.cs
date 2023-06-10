@@ -24,7 +24,7 @@ namespace CGT.FungusExt.Audio.Internal
             }
         }
 
-        protected int initChannelCount = 10;
+        protected int initChannelCount = 2;
 
         public virtual void Play(AudioArgs args)
         {
