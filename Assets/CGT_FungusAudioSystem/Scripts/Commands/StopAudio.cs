@@ -32,5 +32,11 @@ namespace CGT.FungusExt.Audio
             return args;
         }
 
+        public override string GetSummary()
+        {
+            return $"{audioType} Ch {channel.Value}";
+            return base.GetSummary();
+        }
+
     }
 }

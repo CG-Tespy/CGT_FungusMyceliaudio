@@ -37,6 +37,7 @@ namespace CGT.FungusExt.Audio
                 AudioArgs fadeOutArgs = GetAudioArgs(fadeOutTargVol, fadeOutDuration, fadeOutCh),
                     fadeInArgs = GetAudioArgs(fadeInTargVol, fadeInDuration, fadeInCh);
 
+                EnsureContinueGetsCalledProperly(fadeOutArgs, fadeInArgs);
                 var applyFade = setVolEvents[audioType];
                 applyFade(fadeOutArgs);
                 applyFade(fadeInArgs);
@@ -66,7 +67,7 @@ namespace CGT.FungusExt.Audio
 
             bool triggerContinueAfterFade = args.WantsFade && waitForFade && IsLongerFade(fadeDuration);
             if (triggerContinueAfterFade)
-                args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
+                args.OnComplete = CallContinueForOnComplete;
 
             return args;
         }
@@ -83,6 +84,22 @@ namespace CGT.FungusExt.Audio
         {
             // So we don't have BOTH AudioArgs triggering Continue
             return fade == Mathf.Max(fadeOutDuration, fadeInDuration);
+        }
+
+        protected virtual void EnsureContinueGetsCalledProperly(AudioArgs first, AudioArgs second)
+        {
+            bool bothSetToCallIt = first.OnComplete == CallContinueForOnComplete &&
+                second.OnComplete == CallContinueForOnComplete;
+            // ^Perhaps for when their fade values are the same non-zero value
+            if (bothSetToCallIt)
+            {
+                second.OnComplete = (AudioArgs args) => { };
+            }
+
+            bool neitherSetToCallIt = !first.WantsFade && !second.WantsFade;
+            // ^For when neither are going to fade
+            if (neitherSetToCallIt)
+                first.OnComplete = CallContinueForOnComplete;
         }
 
         public override string GetSummary()

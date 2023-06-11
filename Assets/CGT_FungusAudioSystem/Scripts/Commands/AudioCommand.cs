@@ -43,6 +43,12 @@ namespace CGT.FungusExt.Audio
         protected AudioSys AudioSys { get { return AudioSys.Instance; } }
 
         protected static float minVolume = 0f, maxVolume = 1f, minPitch = -3f, maxPitch = 3f;
+
+        protected virtual void CallContinueForOnComplete(AudioArgs args)
+        {
+            Continue();
+        }
+
         public override Color GetButtonColor()
         {
             return audioCommandColor;
