@@ -11,9 +11,18 @@ namespace CGT.FungusExt.Audio
         protected virtual void Awake()
         {
             AudioSys.EnsureExists();
+            // We want to set up a foundation so it's easy for subclasses to access
+            // basic parts of the system so they don't have to set up (as much of)
+            // that access themselves
+            SetUpEventDicts();
+        }
+
+        protected virtual void SetUpEventDicts()
+        {
             SetUpPlayEventDict();
             SetUpStopEventDict();
-            SetUpSetVolDict();
+            SetUpSetVolEventDict();
+            SetUpPitchEventDict();
         }
 
         protected virtual void SetUpPlayEventDict()
@@ -22,7 +31,7 @@ namespace CGT.FungusExt.Audio
             playEvents[AudioType.SFX] = AudioEvents.TriggerPlaySFX;
         }
 
-        protected Dictionary<AudioType, AudioHandler> playEvents = new Dictionary<AudioType, AudioHandler>();
+        protected IDictionary<AudioType, AudioHandler> playEvents = new Dictionary<AudioType, AudioHandler>();
 
         protected virtual void SetUpStopEventDict()
         {
@@ -30,16 +39,24 @@ namespace CGT.FungusExt.Audio
             stopEvents[AudioType.SFX] = AudioEvents.TriggerStopSFX;
         }
 
-        protected Dictionary<AudioType, AudioHandler> stopEvents = new Dictionary<AudioType, AudioHandler>();
+        protected IDictionary<AudioType, AudioHandler> stopEvents = new Dictionary<AudioType, AudioHandler>();
 
-        protected virtual void SetUpSetVolDict()
+        protected virtual void SetUpSetVolEventDict()
         {
             setVolEvents[AudioType.Music] = AudioEvents.TriggerSetMusicVolume;
             setVolEvents[AudioType.SFX] = AudioEvents.TriggerSetSFXVolume;
         }
 
-        protected Dictionary<AudioType, AudioHandler> setVolEvents = new Dictionary<AudioType, AudioHandler>();
-        
+        protected IDictionary<AudioType, AudioHandler> setVolEvents = new Dictionary<AudioType, AudioHandler>();
+
+        protected virtual void SetUpPitchEventDict()
+        {
+            setPitEvents[AudioType.Music] = AudioEvents.TriggerSetMusicPitch;
+            setPitEvents[AudioType.SFX] = AudioEvents.TriggerSetSFXPitch;
+        }
+
+        protected IDictionary<AudioType, AudioHandler> setPitEvents = new Dictionary<AudioType, AudioHandler>();
+
         protected AudioSys AudioSys { get { return AudioSys.Instance; } }
 
         protected static float minVolume = 0f, maxVolume = 1f, minPitch = -3f, maxPitch = 3f;

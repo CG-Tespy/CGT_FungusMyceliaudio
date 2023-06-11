@@ -23,7 +23,7 @@ namespace CGT.FungusExt.Audio
 
         public virtual bool WantsPitchSet { get; set; }
 
-        public virtual float Pitch { get; set; }
+        public virtual float TargetPitch { get; set; }
 
         public virtual bool Loop { get; set; }
 
@@ -34,6 +34,7 @@ namespace CGT.FungusExt.Audio
         }
 
         public virtual int Channel { get; set; }
+        public virtual AudioType AudioType { get; set; }
 
         /// <summary>
         /// By default a func that does nothing.
@@ -51,11 +52,12 @@ namespace CGT.FungusExt.Audio
             theCopy.TargetVolume = source.TargetVolume;
             theCopy.FadeDuration = source.FadeDuration;
             theCopy.WantsPitchSet = source.WantsPitchSet;
-            theCopy.Pitch = source.Pitch;
+            theCopy.TargetPitch = source.TargetPitch;
             theCopy.Loop = source.Loop;
             theCopy.AtTime = source.AtTime;
             theCopy.Channel = source.Channel;
             theCopy.OnComplete = source.OnComplete;
+            theCopy.AudioType = source.AudioType;
 
             return theCopy;
             

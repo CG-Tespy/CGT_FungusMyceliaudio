@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using CGT.FungusExt.Audio.Internal;
 
 namespace CGT.FungusExt.Audio
@@ -37,12 +38,17 @@ namespace CGT.FungusExt.Audio
         protected virtual void EnsureAudioManagersAreThere()
         {
             string musicManagerName = "CGT_FungusMusicManager";
-            if (musicManager == null)
-                musicManager = CreateAudioManager(musicManagerName);
+            bool noMusicManager = !audioManagers.ContainsKey(AudioType.Music) ||
+                audioManagers[AudioType.Music] == null;
+            if (noMusicManager)
+                musicManager = audioManagers[AudioType.Music] = CreateAudioManager(musicManagerName);
 
             string sfxManagerName = "CGT_FungusSFXManager";
-            if (sfxManager == null)
-                sfxManager = CreateAudioManager(sfxManagerName);
+            bool noSfxManager = !audioManagers.ContainsKey(AudioType.SFX) ||
+                audioManagers[AudioType.SFX] == null;
+            if (noSfxManager)
+                sfxManager = audioManagers[AudioType.SFX] = CreateAudioManager(sfxManagerName);
+
         }
 
         protected virtual AudioManager CreateAudioManager(string name)
@@ -56,7 +62,7 @@ namespace CGT.FungusExt.Audio
             return manager;
         }
 
-        //protected AudioManager musicManager, sfxManager;
+        protected IDictionary<AudioType, AudioManager> audioManagers = new Dictionary<AudioType, AudioManager>();
 
         protected AudioManager musicManager, sfxManager;
 
@@ -99,6 +105,18 @@ namespace CGT.FungusExt.Audio
 
             AudioEvents.StopMusic -= musicManager.Stop;
             AudioEvents.StopSFX -= sfxManager.Stop;
+        }
+
+        public float GetVolume(AudioArgs args)
+        {
+            var managerToUse = audioManagers[args.AudioType];
+            return managerToUse.GetVolume(args);
+        }
+
+        public float GetPitch(AudioArgs args)
+        {
+            var managerToUse = audioManagers[args.AudioType];
+            return managerToUse.GetPitch(args);
         }
 
         public float GetMusicVolume(AudioArgs args)

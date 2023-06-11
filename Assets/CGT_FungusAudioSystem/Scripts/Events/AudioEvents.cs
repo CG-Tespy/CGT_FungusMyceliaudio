@@ -12,7 +12,10 @@ namespace CGT.FungusExt.Audio
             SetSFXPitch = delegate { },
 
             StopMusic = delegate { },
-            StopSFX = delegate { };
+            StopSFX = delegate { },
+
+            SetVolume = delegate { },
+            SetPitch = delegate { };
             
         public static void TriggerPlayMusic(AudioArgs args)
         {
@@ -42,6 +45,16 @@ namespace CGT.FungusExt.Audio
         public static void TriggerStopSFX(AudioArgs args)
         {
             StopSFX.Invoke(args);
+        }
+
+        public static void TriggerSetMusicPitch(AudioArgs args)
+        {
+            SetMusicPitch.Invoke(args);
+        }
+
+        public static void TriggerSetSFXPitch(AudioArgs args)
+        {
+            SetSFXPitch.Invoke(args);
         }
 
     }

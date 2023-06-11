@@ -21,7 +21,7 @@
             theCopy.TargetVolume = source.TargetVolume;
             theCopy.FadeDuration = source.FadeDuration;
             theCopy.WantsPitchSet = source.WantsPitchSet;
-            theCopy.Pitch = source.Pitch;
+            theCopy.TargetPitch = source.TargetPitch;
             theCopy.Loop = source.Loop;
             theCopy.AtTime = source.AtTime;
             theCopy.OnComplete = (InternalAudioArgs args) => { source.OnComplete(args); };

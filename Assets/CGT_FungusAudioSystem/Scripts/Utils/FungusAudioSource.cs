@@ -116,7 +116,7 @@ namespace CGT.FungusExt.Audio.Internal
 
         protected virtual void SetPitchWithoutDelay(InternalAudioArgs args)
         {
-            CurrentPitch = args.Pitch;
+            CurrentPitch = args.TargetPitch;
         }
 
         protected virtual void PlayWithoutDelay(AudioArgs args)
@@ -213,7 +213,7 @@ namespace CGT.FungusExt.Audio.Internal
 
         protected virtual void FadePitch(InternalAudioArgs args)
         {
-            float startingPitch = CurrentPitch, targetPitch = args.Pitch;
+            float startingPitch = CurrentPitch, targetPitch = args.TargetPitch;
             tweeningPitch = true;
 
             System.Action onComplete = () =>

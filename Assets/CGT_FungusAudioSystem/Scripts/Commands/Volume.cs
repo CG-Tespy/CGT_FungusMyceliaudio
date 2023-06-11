@@ -67,8 +67,8 @@ namespace CGT.FungusExt.Audio
             setVol(args);
         }
 
-        protected Dictionary<AudioType, System.Action<AudioArgs>> volumeGetters = 
-            new Dictionary<AudioType, System.Action<AudioArgs>>();
+        protected Dictionary<AudioType, AudioHandler> volumeGetters = 
+            new Dictionary<AudioType, AudioHandler>();
 
         protected override void Awake()
         {
@@ -111,7 +111,7 @@ namespace CGT.FungusExt.Audio
             string flowchartName = GetFlowchart().name;
             string blockName = ParentBlock.BlockName;
             int index = this.CommandIndex;
-            string errorMessage = $"PlayAudio invalid in Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index}. Reason: No valid output var assigned for Get operation";
+            string errorMessage = $"Volume invalid in Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index}. Reason: No valid output var assigned for Get operation";
 
             Debug.LogError(errorMessage);
         }
