@@ -13,6 +13,7 @@ namespace CGT.FungusExt.Audio
         [SerializeField] protected GetOrSet action = GetOrSet.Set;
 
         [Header("For Setting")]
+        [Tooltip("In terms of percentages. 100 for 100%, 50 for 50%, and so on")]
         [SerializeField] protected FloatData targetValue = new FloatData(1f);
         [SerializeField] protected FloatData fadeDuration = new FloatData(0f);
 
@@ -62,6 +63,24 @@ namespace CGT.FungusExt.Audio
             return args;
         }
 
+        protected virtual float CorrectedTargetValue
+        {
+            get
+            {
+                // Since AudioSources prefer different target values for different things
+                // like volume and pitch
+                float corrected = targetValue;
+                corrected /= 100;
+
+                corrected = Mathf.Clamp(corrected, MinTargetValue, MaxTargetValue);
+
+                return corrected;
+            }
+        }
+
+        protected abstract float MinTargetValue { get; }
+        protected abstract float MaxTargetValue { get; }
+
         protected abstract void SetValuesToSystem(AudioArgs args);
 
         protected abstract void GetValueIntoOutput(AudioArgs args);
@@ -109,6 +128,8 @@ namespace CGT.FungusExt.Audio
                     forSummary.Append($"{targetValue.floatRef.Key}");
                 else
                     forSummary.Append($"{targetValue.Value}");
+
+                forSummary.Append("%");
             }
             else
             {

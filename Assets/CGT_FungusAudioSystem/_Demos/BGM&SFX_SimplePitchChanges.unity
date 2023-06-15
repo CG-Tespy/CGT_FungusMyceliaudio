@@ -492,12 +492,9 @@ GameObject:
   - component: {fileID: 861811463}
   - component: {fileID: 861811462}
   - component: {fileID: 861811461}
-  - component: {fileID: 861811460}
   - component: {fileID: 861811459}
   - component: {fileID: 861811458}
-  - component: {fileID: 861811457}
   - component: {fileID: 861811456}
-  - component: {fileID: 861811454}
   - component: {fileID: 861811453}
   - component: {fileID: 861811452}
   - component: {fileID: 861811451}
@@ -506,10 +503,8 @@ GameObject:
   - component: {fileID: 861811447}
   - component: {fileID: 861811445}
   - component: {fileID: 861811444}
-  - component: {fileID: 861811442}
   - component: {fileID: 861811441}
   - component: {fileID: 861811440}
-  - component: {fileID: 861811439}
   - component: {fileID: 861811438}
   - component: {fileID: 861811437}
   - component: {fileID: 861811436}
@@ -517,8 +512,6 @@ GameObject:
   - component: {fileID: 861811434}
   - component: {fileID: 861811433}
   - component: {fileID: 861811432}
-  - component: {fileID: 861811431}
-  - component: {fileID: 861811430}
   - component: {fileID: 861811429}
   - component: {fileID: 861811428}
   - component: {fileID: 861811426}
@@ -529,28 +522,17 @@ GameObject:
   - component: {fileID: 861811420}
   - component: {fileID: 861811419}
   - component: {fileID: 861811418}
-  - component: {fileID: 861811417}
-  - component: {fileID: 861811416}
   - component: {fileID: 861811415}
-  - component: {fileID: 861811414}
-  - component: {fileID: 861811413}
   - component: {fileID: 861811412}
-  - component: {fileID: 861811411}
-  - component: {fileID: 861811410}
   - component: {fileID: 861811409}
   - component: {fileID: 861811408}
   - component: {fileID: 861811407}
   - component: {fileID: 861811478}
   - component: {fileID: 861811455}
-  - component: {fileID: 861811450}
   - component: {fileID: 861811479}
   - component: {fileID: 861811474}
-  - component: {fileID: 861811472}
-  - component: {fileID: 861811484}
   - component: {fileID: 861811443}
   - component: {fileID: 861811424}
-  - component: {fileID: 861811446}
-  - component: {fileID: 861811427}
   m_Layer: 0
   m_Name: PitchChanging
   m_TagString: Untagged
@@ -715,48 +697,6 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811410
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 71
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 861811417}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
---- !u!114 &861811411
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 70
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 861811414}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
 --- !u!114 &861811412
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -778,96 +718,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &861811413
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 68
-  indentLevel: 0
-  variable: {fileID: 861811419}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 861811475}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811414
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: 871.75183
-    y: 149.31529
-    width: 180.63287
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 72
-  blockName: UpdateCurrentMusicPit
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 861811413}
 --- !u!114 &861811415
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -889,96 +739,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &861811416
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 65
-  indentLevel: 0
-  variable: {fileID: 861811418}
-  setOperator: 0
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 861811440}
-    floatVal: 0
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811417
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeRect:
-    serializedVersion: 2
-    x: -174.04225
-    y: 148.69258
-    width: 171.51895
-    height: 40
-  tint: {r: 1, g: 1, b: 1, a: 1}
-  useCustomTint: 0
-  itemId: 64
-  blockName: UpdateCurrentSFXPit
-  description: 
-  eventHandler: {fileID: 0}
-  commandList:
-  - {fileID: 861811416}
 --- !u!114 &861811418
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1144,7 +904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 54
   indentLevel: 0
-  variable: {fileID: 861811440}
+  variable: {fileID: 861811418}
   setOperator: 3
   booleanData:
     booleanRef: {fileID: 0}
@@ -1194,35 +954,6 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811427
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 85
-  indentLevel: 0
-  audioType: 1
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811440}
 --- !u!114 &861811428
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1248,9 +979,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 861811422}
   commandList:
-  - {fileID: 861811427}
   - {fileID: 861811426}
-  - {fileID: 861811410}
   - {fileID: 861811425}
   - {fileID: 861811443}
   - {fileID: 861811423}
@@ -1271,102 +1000,9 @@ MonoBehaviour:
   targetTextObject: {fileID: 1651235759}
   text:
     stringRef: {fileID: 0}
-    stringVal: 'SFX Pitch: {$currentSFXPit}'
+    stringVal: 'SFX Pitch: {$currentSFXPit}%'
   description: 
   _textObjectObsolete: {fileID: 0}
---- !u!114 &861811430
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 50
-  indentLevel: 0
-  variable: {fileID: 861811439}
-  setOperator: 4
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 100
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811431
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 49
-  indentLevel: 0
-  audioType: 1
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811439}
 --- !u!114 &861811432
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1392,8 +1028,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 861811431}
-  - {fileID: 861811430}
   - {fileID: 861811429}
 --- !u!114 &861811433
 MonoBehaviour:
@@ -1679,21 +1313,6 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811439
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: sfxPitAsPercent
-  value: 0
 --- !u!114 &861811440
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1723,27 +1342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 861811447}
   targetButton: {fileID: 597049714}
---- !u!114 &861811442
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 41
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 861811417}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
 --- !u!114 &861811443
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1808,7 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 38
   indentLevel: 0
-  variable: {fileID: 861811440}
+  variable: {fileID: 861811418}
   setOperator: 2
   booleanData:
     booleanRef: {fileID: 0}
@@ -1858,35 +1456,6 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &861811446
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 84
-  indentLevel: 0
-  audioType: 1
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811440}
 --- !u!114 &861811447
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1912,9 +1481,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 861811441}
   commandList:
-  - {fileID: 861811446}
   - {fileID: 861811445}
-  - {fileID: 861811442}
   - {fileID: 861811444}
   - {fileID: 861811424}
   - {fileID: 861811415}
@@ -1953,35 +1520,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &861811450
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 77
-  indentLevel: 0
-  audioType: 0
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811460}
 --- !u!114 &861811451
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2017,7 +1555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 31
   indentLevel: 0
-  variable: {fileID: 861811475}
+  variable: {fileID: 861811419}
   setOperator: 3
   booleanData:
     booleanRef: {fileID: 0}
@@ -2092,76 +1630,10 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 861811448}
   commandList:
-  - {fileID: 861811484}
   - {fileID: 861811452}
-  - {fileID: 861811411}
   - {fileID: 861811451}
   - {fileID: 861811479}
   - {fileID: 861811449}
---- !u!114 &861811454
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb77d0ce495044f6e9feb91b31798e8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 28
-  indentLevel: 0
-  variable: {fileID: 861811460}
-  setOperator: 4
-  booleanData:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  integerData:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  floatData:
-    floatRef: {fileID: 0}
-    floatVal: 100
-  stringData:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorData:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 0}
-  audioSourceData:
-    audioSourceRef: {fileID: 0}
-    audioSourceVal: {fileID: 0}
-  colorData:
-    colorRef: {fileID: 0}
-    colorVal: {r: 0, g: 0, b: 0, a: 0}
-  gameObjectData:
-    gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 0}
-  materialData:
-    materialRef: {fileID: 0}
-    materialVal: {fileID: 0}
-  objectData:
-    objectRef: {fileID: 0}
-    objectVal: {fileID: 0}
-  rigidbody2DData:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 0}
-  spriteData:
-    spriteRef: {fileID: 0}
-    spriteVal: {fileID: 0}
-  textureData:
-    textureRef: {fileID: 0}
-    textureVal: {fileID: 0}
-  transformData:
-    transformRef: {fileID: 0}
-    transformVal: {fileID: 0}
-  vector2Data:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
-  vector3Data:
-    vector3Ref: {fileID: 0}
-    vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &861811455
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2212,27 +1684,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
---- !u!114 &861811457
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 25
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 861811414}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 2
 --- !u!114 &861811458
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2264,24 +1715,9 @@ MonoBehaviour:
   targetTextObject: {fileID: 1647803962}
   text:
     stringRef: {fileID: 0}
-    stringVal: 'Music Pitch: {$currentMusicPit}'
+    stringVal: 'Music Pitch: {$currentMusicPit}%'
   description: 
   _textObjectObsolete: {fileID: 0}
---- !u!114 &861811460
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: musicPitAsPercent
-  value: 0
 --- !u!114 &861811461
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2307,8 +1743,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 861811450}
-  - {fileID: 861811454}
   - {fileID: 861811459}
 --- !u!114 &861811462
 MonoBehaviour:
@@ -2666,7 +2100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: minPitch
-  value: -3
+  value: 0.1
 --- !u!114 &861811471
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2681,36 +2115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: maxPitch
-  value: 3
---- !u!114 &861811472
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 80
-  indentLevel: 0
-  audioType: 0
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811475}
+  value: 300
 --- !u!114 &861811473
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2725,7 +2130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 5
   indentLevel: 0
-  variable: {fileID: 861811475}
+  variable: {fileID: 861811419}
   setOperator: 2
   booleanData:
     booleanRef: {fileID: 0}
@@ -2833,7 +2238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: pitchChangeStep
-  value: 0.1
+  value: 10
 --- !u!114 &861811477
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2859,9 +2264,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 861811458}
   commandList:
-  - {fileID: 861811472}
   - {fileID: 861811473}
-  - {fileID: 861811457}
   - {fileID: 861811462}
   - {fileID: 861811474}
   - {fileID: 861811412}
@@ -2937,7 +2340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: startingSFXPitch
-  value: 1
+  value: 100
 --- !u!114 &861811481
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2952,7 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: startingMusicPitch
-  value: 1
+  value: 100
 --- !u!114 &861811482
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2997,7 +2400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 75.51049, y: 58.970615}
+  scrollPos: {x: 323.61166, y: 42.514927}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -3009,8 +2412,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 861811453}
-  selectedCommands: []
+  - {fileID: 861811447}
+  selectedCommands:
+  - {fileID: 861811444}
   variables:
   - {fileID: 861811481}
   - {fileID: 861811480}
@@ -3018,9 +2422,7 @@ MonoBehaviour:
   - {fileID: 861811475}
   - {fileID: 861811471}
   - {fileID: 861811470}
-  - {fileID: 861811460}
   - {fileID: 861811440}
-  - {fileID: 861811439}
   - {fileID: 861811420}
   - {fileID: 861811419}
   - {fileID: 861811418}
@@ -3035,35 +2437,6 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
---- !u!114 &861811484
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861811405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 81
-  indentLevel: 0
-  audioType: 0
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 0
-  targetValue:
-    floatRef: {fileID: 861811419}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 861811475}
 --- !u!1 &894909998
 GameObject:
   m_ObjectHideFlags: 0
@@ -3305,6 +2678,7 @@ GameObject:
   - component: {fileID: 1020830110}
   - component: {fileID: 1020830112}
   - component: {fileID: 1020830113}
+  - component: {fileID: 1020830114}
   m_Layer: 0
   m_Name: SFXPlaying
   m_TagString: Untagged
@@ -3424,12 +2798,12 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1020830112}
-  selectedCommands:
-  - {fileID: 1020830113}
+  - {fileID: 1020830108}
+  selectedCommands: []
   variables:
   - {fileID: 1020830111}
   - {fileID: 1020830110}
+  - {fileID: 1020830114}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3516,7 +2890,7 @@ MonoBehaviour:
     integerVal: 0
   action: 1
   targetValue:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1020830114}
     floatVal: 0.1
   fadeDuration:
     floatRef: {fileID: 0}
@@ -3525,6 +2899,21 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   output: {fileID: 0}
+--- !u!114 &1020830114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020830104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: sfxVol
+  value: 15
 --- !u!1 &1304208500
 GameObject:
   m_ObjectHideFlags: 0
@@ -5329,7 +4718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1020830109}
+  selectedFlowchart: {fileID: 861811483}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -5639,6 +5028,7 @@ GameObject:
   - component: {fileID: 2093348777}
   - component: {fileID: 2093348780}
   - component: {fileID: 2093348753}
+  - component: {fileID: 2093348754}
   m_Layer: 0
   m_Name: MusicPlaying
   m_TagString: Untagged
@@ -5753,6 +5143,7 @@ MonoBehaviour:
   - {fileID: 2093348759}
   - {fileID: 2093348780}
   - {fileID: 2093348758}
+  - {fileID: 2093348754}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -5783,8 +5174,8 @@ MonoBehaviour:
     integerVal: 0
   action: 1
   targetValue:
-    floatRef: {fileID: 0}
-    floatVal: 0.05
+    floatRef: {fileID: 2093348754}
+    floatVal: 5
   fadeDuration:
     floatRef: {fileID: 0}
     floatVal: 0
@@ -5792,6 +5183,21 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   output: {fileID: 0}
+--- !u!114 &2093348754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093348748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 0
+  key: musicVol
+  value: 5
 --- !u!114 &2093348758
 MonoBehaviour:
   m_ObjectHideFlags: 2

@@ -17,9 +17,12 @@ namespace CGT.FungusExt.Audio
             var result = base.DecideAudioArgs();
             result.WantsVolumeSet = false;
             result.WantsPitchSet = true;
-            result.TargetPitch = targetValue;
+            result.TargetPitch = CorrectedTargetValue;
             return result;
         }
+
+        protected override float MinTargetValue { get { return AudioStatics.MinPitch; } }
+        protected override float MaxTargetValue { get { return AudioStatics.MaxPitch; } }
 
         protected override void SetValuesToSystem(AudioArgs args)
         {
