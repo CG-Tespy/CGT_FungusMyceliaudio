@@ -9,150 +9,25 @@ namespace CGT.FungusExt.Audio
         "Volume",
         "Lets you get or set the volume of music, sfx or voice.")]
     [AddComponentMenu("")]
-    public class Volume : AudioCommand
+    public class Volume : SoundShifter
     {
-        [SerializeField] protected IntegerData channel = new IntegerData(0);
-        [SerializeField] protected GetOrSet action = GetOrSet.Set;
-
-        [Header("For Setting")]
-        [SerializeField] protected FloatData targetVolume = new FloatData(1f);
-        [SerializeField] protected FloatData fadeDuration = new FloatData(0f);
-
-        [Tooltip("Whether or not this should wait for the fading to finish before moving to the next Command")]
-        [SerializeField] protected BooleanData waitForFade = new BooleanData(false);
-
-        [Header("For Getting")] [SerializeField]
-        [VariableProperty(typeof(FloatVariable))] protected FloatVariable output;
-
-        public override void OnEnter()
+        protected override AudioArgs DecideAudioArgs()
         {
-            base.OnEnter();
-
-            AudioArgs args = DecideAudioArgs();
-
-            if (action == GetOrSet.Set)
-            {
-                HandleSetOperation(args);
-            }
-            else 
-            {
-                HandleGetOperation(args);
-            }
-
-            bool shouldContinueRightAway = action == GetOrSet.Get || !waitForFade;
-            if (shouldContinueRightAway)
-                Continue();
+            var result = base.DecideAudioArgs();
+            result.WantsVolumeSet = true;
+            result.WantsPitchSet = false;
+            result.TargetVolume = targetValue;
+            return result;
         }
 
-        protected virtual AudioArgs DecideAudioArgs()
+        protected override void SetValuesToSystem(AudioArgs args)
         {
-            AudioArgs args = new AudioArgs();
-            args.WantsVolumeSet = true;
-            args.WantsPitchSet = false;
-            args.TargetVolume = Mathf.Clamp(targetVolume, AudioStatics.MinVolume, AudioStatics.MaxVolume);
-            // ^ Sound playback might get funky if you set it to a value higher than 1, so...
-            args.FadeDuration = Mathf.Max(0, fadeDuration);
-            args.Channel = this.channel;
-
-            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
-            // ^OnComplete will always be called right after the volume's done adjusting, be it
-            // right away or after a fade. Thus, we won't need a Continue call in OnEnter
-
-            return args;
+            AudioSetter.SetVolume(args);
         }
 
-        protected virtual void HandleSetOperation(AudioArgs args)
+        protected override void GetValueIntoOutput(AudioArgs args)
         {
-            var setVol = setVolEvents[audioType];
-            setVol(args);
+            output.Value = AudioSys.GetVolume(args);
         }
-
-        protected Dictionary<AudioType, AudioHandler> volumeGetters = 
-            new Dictionary<AudioType, AudioHandler>();
-
-        protected override void Awake()
-        {
-            base.Awake();
-            PrepareVolumeGetters();
-        }
-
-        protected virtual void PrepareVolumeGetters()
-        {
-            volumeGetters[AudioType.Music] = GetMusicVolume;
-            volumeGetters[AudioType.SFX] = GetSFXVolume;
-        }
-
-        protected virtual void GetMusicVolume(AudioArgs args)
-        {
-            output.Value = AudioSys.GetMusicVolume(args);
-        }
-
-        protected virtual void GetSFXVolume(AudioArgs args)
-        {
-            output.Value = AudioSys.GetSFXVolume(args);
-        }
-
-        protected virtual void HandleGetOperation(AudioArgs args)
-        {
-            if (!OutputIsValid)
-            {
-                AlertForInvalidOutput();
-            }
-            else
-            {
-                SetOutputToDesiredValue(args);
-            }
-        }
-
-        protected virtual bool OutputIsValid { get { return output != null; } }
-
-        protected virtual void AlertForInvalidOutput()
-        {
-            string flowchartName = GetFlowchart().name;
-            string blockName = ParentBlock.BlockName;
-            int index = this.CommandIndex;
-            string errorMessage = $"Volume invalid in Flowchart in GameObject {flowchartName}, Block {blockName}, Index {index}. Reason: No valid output var assigned for Get operation";
-
-            Debug.LogError(errorMessage);
-        }
-
-        protected virtual void SetOutputToDesiredValue(AudioArgs args)
-        {
-            var getter = volumeGetters[audioType];
-            getter(args);
-        }
-
-        public override string GetSummary()
-        {
-            forSummary.Clear();
-            if (fadeDuration > 0)
-                forSummary.Append("Fade ");
-            else
-                forSummary.Append($"{action} ");
-
-            forSummary.Append($"Ch {channel.Value} {audioType} ");
-
-            if (action == GetOrSet.Set)
-            {
-                forSummary.Append("to ");
-
-                bool goWithVolumeVar = targetVolume.floatRef != null;
-                if (goWithVolumeVar)
-                    forSummary.Append($"{targetVolume.floatRef.Key}");
-                else
-                    forSummary.Append($"{targetVolume.Value}");
-            }
-            else
-            {
-                if (!OutputIsValid)
-                    return "Error: needs output var!";
-                
-                forSummary.Append($"into {output.Key}");
-            }
-
-            return forSummary.ToString();
-        }
-
-        protected StringBuilder forSummary = new StringBuilder();
     }
 }

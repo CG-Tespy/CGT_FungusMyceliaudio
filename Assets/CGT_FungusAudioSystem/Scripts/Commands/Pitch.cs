@@ -31,37 +31,5 @@ namespace CGT.FungusExt.Audio
             output.Value = AudioSys.GetPitch(args);
         }
 
-        public override string GetSummary()
-        {
-            forSummary.Clear();
-            if (fadeDuration > 0)
-                forSummary.Append("Fade ");
-            else
-                forSummary.Append($"{action} ");
-
-            forSummary.Append($"Ch {channel.Value} {audioType} ");
-
-            if (action == GetOrSet.Set)
-            {
-                forSummary.Append("to ");
-
-                bool goWithVolumeVar = targetValue.floatRef != null;
-                if (goWithVolumeVar)
-                    forSummary.Append($"{targetValue.floatRef.Key}");
-                else
-                    forSummary.Append($"{targetValue.Value}");
-            }
-            else
-            {
-                if (!OutputIsValid)
-                    return "Error: needs output var!";
-
-                forSummary.Append($"into {output.Key}");
-            }
-
-            return forSummary.ToString();
-        }
-
-        protected StringBuilder forSummary = new StringBuilder();
     }
 }

@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
+using StringBuilder = System.Text.StringBuilder;
 
 namespace CGT.FungusExt.Audio
 {
@@ -90,6 +89,39 @@ namespace CGT.FungusExt.Audio
             AudioGetter.Init();
             AudioSetter.Init();
         }
-       
+
+        public override string GetSummary()
+        {
+            forSummary.Clear();
+            if (fadeDuration > 0)
+                forSummary.Append("Fade ");
+            else
+                forSummary.Append($"{action} ");
+
+            forSummary.Append($"Ch {channel.Value} {audioType} ");
+
+            if (action == GetOrSet.Set)
+            {
+                forSummary.Append("to ");
+
+                bool goWithValueVar = targetValue.floatRef != null;
+                if (goWithValueVar)
+                    forSummary.Append($"{targetValue.floatRef.Key}");
+                else
+                    forSummary.Append($"{targetValue.Value}");
+            }
+            else
+            {
+                if (!OutputIsValid)
+                    return "Error: needs output var!";
+
+                forSummary.Append($"into {output.Key}");
+            }
+
+            return forSummary.ToString();
+        }
+
+        protected StringBuilder forSummary = new StringBuilder();
+
     }
 }

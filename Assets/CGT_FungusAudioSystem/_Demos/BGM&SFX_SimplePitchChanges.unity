@@ -1196,7 +1196,7 @@ MonoBehaviour:
     vector3Val: {x: 0, y: 0, z: 0}
 --- !u!114 &861811427
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1357,7 +1357,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -3009,9 +3009,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 861811432}
-  selectedCommands:
-  - {fileID: 861811429}
+  - {fileID: 861811453}
+  selectedCommands: []
   variables:
   - {fileID: 861811481}
   - {fileID: 861811480}
@@ -3516,9 +3515,9 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
-    floatVal: 0.2
+    floatVal: 0.1
   fadeDuration:
     floatRef: {fileID: 0}
     floatVal: 0
@@ -5330,7 +5329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 861811483}
+  selectedFlowchart: {fileID: 1020830109}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -5783,9 +5782,9 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
-    floatVal: 0.1
+    floatVal: 0.05
   fadeDuration:
     floatRef: {fileID: 0}
     floatVal: 0

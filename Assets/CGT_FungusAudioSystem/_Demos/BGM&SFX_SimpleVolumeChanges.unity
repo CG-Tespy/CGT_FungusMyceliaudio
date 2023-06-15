@@ -1010,7 +1010,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
@@ -1054,7 +1054,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 124.848755, y: 36.11094}
+  scrollPos: {x: 27.48036, y: 30.847784}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -1118,9 +1118,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1247571524}
-  selectedCommands:
-  - {fileID: 1247571520}
+  - {fileID: 1247571482}
+  selectedCommands: []
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571470}
@@ -1536,7 +1535,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
@@ -1629,7 +1628,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -1817,7 +1816,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -1966,7 +1965,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
@@ -2080,7 +2079,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2224,7 +2223,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2630,7 +2629,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
@@ -2744,7 +2743,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -2860,7 +2859,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
@@ -2974,7 +2973,7 @@ MonoBehaviour:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 0
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 0}
     floatVal: 1
   fadeDuration:
@@ -5146,7 +5145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 192
+    x: 191
     y: 134
     width: 120
     height: 40
@@ -5723,7 +5722,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 0
-  key: sognToPlay
+  key: songToPlay
   value: {fileID: 8300000, guid: 2579596fabcb87a49a5fee65881e2098, type: 3}
 --- !u!114 &2093348780
 MonoBehaviour:
