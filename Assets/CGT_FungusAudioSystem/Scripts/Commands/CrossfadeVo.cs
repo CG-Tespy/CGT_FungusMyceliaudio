@@ -61,7 +61,7 @@ namespace CGT.FungusExt.Audio
         protected virtual AudioArgs GetAudioArgs(float targetVolume, float fadeDuration, int channel)
         {
             AudioArgs args = GetBaseAudioArgs();
-            args.TargetVolume = Mathf.Clamp(targetVolume, AudioStatics.MinVolume, AudioStatics.MaxVolume);
+            args.TargetVolume = CorrectedTargetVolume(targetVolume);
             args.FadeDuration = Mathf.Max(0, fadeDuration);
             args.Channel = channel;
 
@@ -70,6 +70,17 @@ namespace CGT.FungusExt.Audio
                 args.OnComplete = CallContinueForOnComplete;
 
             return args;
+        }
+
+        protected virtual float CorrectedTargetVolume(float targetVolume)
+        {
+            targetVolume /= 100f; 
+            // ^Since we want to make sure that it's in line with what AudioSources
+            // prefer to work with as far as volume vars are concerned
+
+            targetVolume = Mathf.Clamp(targetVolume, AudioStatics.MinVolume, AudioStatics.MaxVolume);
+
+            return targetVolume;
         }
 
         protected virtual AudioArgs GetBaseAudioArgs()

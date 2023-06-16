@@ -455,7 +455,6 @@ GameObject:
   - component: {fileID: 494277609}
   - component: {fileID: 494277608}
   - component: {fileID: 494277553}
-  - component: {fileID: 494277556}
   - component: {fileID: 494277554}
   - component: {fileID: 494277607}
   - component: {fileID: 494277552}
@@ -468,7 +467,6 @@ GameObject:
   - component: {fileID: 494277561}
   - component: {fileID: 494277577}
   - component: {fileID: 494277564}
-  - component: {fileID: 494277560}
   - component: {fileID: 494277573}
   - component: {fileID: 494277572}
   - component: {fileID: 494277546}
@@ -498,8 +496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 407.13297
-    y: 157.56215
+    x: 385.61475
+    y: 157.56203
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -510,7 +508,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 494277564}
-  - {fileID: 494277560}
   - {fileID: 494277552}
 --- !u!114 &494277546
 MonoBehaviour:
@@ -660,8 +657,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 619.0171
-    y: 156.15321
+    x: 616.4849
+    y: 159.95065
     width: 166.45566
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -689,53 +686,9 @@ MonoBehaviour:
   targetTextObject: {fileID: 1647803962}
   text:
     stringRef: {fileID: 0}
-    stringVal: 'Music Pitch: {$currentMusicPit}'
+    stringVal: 'Music Pitch: {$currentMusicPit}%'
   description: 
   _textObjectObsolete: {fileID: 0}
---- !u!114 &494277556
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494277544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: musicPitAsPercent
-  value: 0
---- !u!114 &494277560
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 494277544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad586b4170246341a74983284940bbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 75
-  indentLevel: 0
-  audioType: 0
-  channel:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  action: 1
-  targetValue:
-    floatRef: {fileID: 494277561}
-    floatVal: 1
-  fadeDuration:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  waitForFade:
-    booleanRef: {fileID: 0}
-    booleanVal: 0
-  output: {fileID: 0}
 --- !u!114 &494277561
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -765,7 +718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: startingSFXPitch
-  value: 1
+  value: 100
 --- !u!114 &494277564
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -844,7 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: startingMusicPitch
-  value: 1
+  value: 100
 --- !u!114 &494277572
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1074,8 +1027,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 631.0524
-    y: 260.77985
+    x: 631.0527
+    y: 286.0963
     width: 143.16454
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1421,8 +1374,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 898.21594
-    y: 151.53055
+    x: 956.44336
+    y: 108.49255
     width: 154.30377
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -1452,7 +1405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: minPitch
-  value: -3
+  value: 0
 --- !u!114 &494277617
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1467,7 +1420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: maxPitch
-  value: 3
+  value: 300
 --- !u!114 &494277618
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1546,7 +1499,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: pitchChangeStep
-  value: 0.1
+  value: 10
 --- !u!114 &494277621
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1613,16 +1566,15 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands:
-  - {fileID: 494277572}
+  selectedBlocks:
+  - {fileID: 494277545}
+  selectedCommands: []
   variables:
   - {fileID: 494277565}
   - {fileID: 494277563}
   - {fileID: 494277620}
   - {fileID: 494277617}
   - {fileID: 494277616}
-  - {fileID: 494277556}
   - {fileID: 494277583}
   - {fileID: 494277561}
   - {fileID: 494277549}
@@ -2292,7 +2244,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 325.2354
     y: 171.69833
-    width: 155.6
+    width: 162.94116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2339,7 +2291,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 540.0288
     y: 125.48468
-    width: 166
+    width: 175.17645
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2464,7 +2416,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 130.42181
     y: 208.78955
-    width: 132.4
+    width: 137.52939
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2761,7 +2713,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 545.1564
     y: 208.04471
-    width: 204.4
+    width: 211.88232
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 1
@@ -2890,7 +2842,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 125.72174
     y: 136.95526
-    width: 128.4
+    width: 132.82352
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2928,11 +2880,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: 102.169174, y: 35.287613}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.8500002
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -2940,9 +2892,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 871119649}
-  selectedCommands:
-  - {fileID: 871119645}
+  - {fileID: 871119653}
+  selectedCommands: []
   variables:
   - {fileID: 871119634}
   - {fileID: 871119633}
@@ -3327,6 +3278,7 @@ GameObject:
   - component: {fileID: 1247571552}
   - component: {fileID: 1247571551}
   - component: {fileID: 1247571508}
+  - component: {fileID: 1247571469}
   m_Layer: 0
   m_Name: VolumeChanging
   m_TagString: Untagged
@@ -3361,6 +3313,21 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571508}
   - {fileID: 1247571471}
+--- !u!114 &1247571469
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 705fa1ac97df74e3a84ff952ffd923f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: noFade
+  value: 0
 --- !u!114 &1247571471
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3380,14 +3347,14 @@ MonoBehaviour:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
-  targetVolume:
+  targetValue:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571469}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571472
@@ -3404,7 +3371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 0
   key: startingMusicVolume
-  value: 0.03
+  value: 5
 --- !u!4 &1247571473
 Transform:
   m_ObjectHideFlags: 0
@@ -3432,11 +3399,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -278.8876, y: 44.718037}
+  scrollPos: {x: -399.44382, y: 21.176207}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.9100001
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -3451,6 +3418,7 @@ MonoBehaviour:
   - {fileID: 1247571544}
   - {fileID: 1247571552}
   - {fileID: 1247571551}
+  - {fileID: 1247571469}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -3552,7 +3520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 1
   key: noFadeWait
   value: 0
 --- !u!114 &1247571552
@@ -3567,7 +3535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d02d9822eec54c98afe95bb497211b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scope: 0
+  scope: 1
   key: yesFadeWait
   value: 1
 --- !u!1 &1256612768
@@ -5615,8 +5583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 497.8144
-    y: 159.51543
+    x: 498.8453
+    y: 158.4845
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -5631,8 +5599,8 @@ MonoBehaviour:
   - {fileID: 2093348781}
   - {fileID: 2093348772}
   - {fileID: 2093348769}
-  - {fileID: 2093348750}
   - {fileID: 2093348756}
+  - {fileID: 2093348750}
 --- !u!114 &2093348752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5687,7 +5655,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &2093348753
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -5719,11 +5687,11 @@ MonoBehaviour:
     integerRef: {fileID: 892317837}
     integerVal: 0
   action: 1
-  targetVolume:
-    floatRef: {fileID: 2093348753}
+  targetValue:
+    floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571469}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 2093348758}

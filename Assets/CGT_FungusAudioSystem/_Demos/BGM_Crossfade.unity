@@ -1260,7 +1260,7 @@ MonoBehaviour:
   - {fileID: 1247571532}
 --- !u!114 &1247571469
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -105.5355, y: -168.22646}
+  scrollPos: {x: -72.65877, y: -68.22647}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -1419,10 +1419,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 1247571513}
-  selectedCommands:
-  - {fileID: 1247571512}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571470}
@@ -2351,8 +2349,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 902.4894
-    y: 395.87878
+    x: 843.5844
+    y: 409.5774
     width: 177.12325
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2476,8 +2474,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 447.8824
-    y: 463.55353
+    x: 391.71805
+    y: 479.99188
     width: 135.47943
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2794,8 +2792,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 897.2607
-    y: 467.17856
+    x: 841.096
+    y: 483.6169
     width: 214.3835
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2932,8 +2930,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 449.1823
-    y: 391.71924
+    x: 393.01797
+    y: 408.1576
     width: 135.47943
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -2974,8 +2972,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 642.696
-    y: 426.4623
+    x: 586.5313
+    y: 442.90067
     width: 165.06845
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -4787,7 +4785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2093348752}
+  selectedFlowchart: {fileID: 1247571474}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -5336,6 +5334,7 @@ GameObject:
   - component: {fileID: 2093348755}
   - component: {fileID: 2093348762}
   - component: {fileID: 2093348760}
+  - component: {fileID: 2093348763}
   m_Layer: 0
   m_Name: MusicPlaying
   m_TagString: Untagged
@@ -5420,8 +5419,9 @@ MonoBehaviour:
   - {fileID: 2093348781}
   - {fileID: 2093348772}
   - {fileID: 2093348769}
-  - {fileID: 2093348750}
   - {fileID: 2093348756}
+  - {fileID: 2093348750}
+  - {fileID: 2093348763}
   - {fileID: 2093348754}
 --- !u!114 &2093348752
 MonoBehaviour:
@@ -5565,7 +5565,7 @@ MonoBehaviour:
   indentLevel: 0
   audioType: 0
   channel:
-    integerRef: {fileID: 892317837}
+    integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
   targetValue:
@@ -5707,6 +5707,35 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 2
+--- !u!114 &2093348763
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093348748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 148
+  indentLevel: 0
+  audioType: 0
+  channel:
+    integerRef: {fileID: 892317837}
+    integerVal: 0
+  action: 1
+  targetValue:
+    floatRef: {fileID: 1247571533}
+    floatVal: 1
+  fadeDuration:
+    floatRef: {fileID: 1247571547}
+    floatVal: 0
+  waitForFade:
+    booleanRef: {fileID: 2093348758}
+    booleanVal: 0
+  output: {fileID: 0}
 --- !u!114 &2093348764
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6174,8 +6203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 503.134
-    y: 146.85553
+    x: 502.1031
+    y: 145.8246
     width: 126.70103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}

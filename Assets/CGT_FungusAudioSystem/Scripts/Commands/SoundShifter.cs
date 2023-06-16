@@ -98,14 +98,12 @@ namespace CGT.FungusExt.Audio
             Debug.LogError(errorMessage);
         }
 
-        protected virtual AudioGetter AudioGetter { get; set; } = new AudioGetter();
         protected virtual AudioSetter AudioSetter { get; set; } = new AudioSetter();
         protected virtual string InvalidOutputErrorMessageFormat { get; } = "{0} invalid in Flowchart {1}, Block {2}, Index {3}. Reason: No valid output var assigned for Get operation";
                 
         protected override void Awake()
         {
             base.Awake();
-            AudioGetter.Init();
             AudioSetter.Init();
         }
 
