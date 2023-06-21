@@ -8,6 +8,7 @@ namespace CGT.FungusExt.Audio
     [CommandInfo("Audio/CGT",
         "StopAudio",
         "Stops the audio of the given type in the given channel")]
+    [AddComponentMenu("")]
     public class StopAudio : AudioCommand
     {
         [SerializeField] protected IntegerData channel = new IntegerData(0);

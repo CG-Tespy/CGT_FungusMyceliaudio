@@ -5,10 +5,10 @@ using StringBuilder = System.Text.StringBuilder;
 namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
-        "PlayChAudio",
+        "PlayAudio",
         "Plays an audio clip in the given channel")]
     [AddComponentMenu("")]
-    public class PlayChannelAudio : AudioCommand
+    public class PlayAudio : AudioCommand
     {
         [SerializeField] protected IntegerData channel = new IntegerData(0);
 

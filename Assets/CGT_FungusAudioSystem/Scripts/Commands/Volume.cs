@@ -5,10 +5,10 @@ using StringBuilder = System.Text.StringBuilder;
 namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
-        "ChVolume",
+        "Volume",
         "Lets you get or set the volume of the given channel")]
     [AddComponentMenu("")]
-    public class ChannelVolume : SoundShifter
+    public class Volume : SoundShifter
     {
         protected override AudioArgs DecideAudioArgs()
         {
