@@ -38,9 +38,8 @@ namespace CGT.FungusExt.Audio
                     fadeInArgs = GetAudioArgs(fadeInTargVol, fadeInDuration, fadeInCh);
 
                 EnsureContinueGetsCalledProperly(fadeOutArgs, fadeInArgs);
-                var applyFade = setVolEvents[audioType];
-                applyFade(fadeOutArgs);
-                applyFade(fadeInArgs);
+                AudioEvents.TriggerSetVolume(fadeOutArgs);
+                AudioEvents.TriggerSetVolume(fadeInArgs);
             }
 
             if (!waitForFade)
@@ -60,7 +59,9 @@ namespace CGT.FungusExt.Audio
 
         protected virtual AudioArgs GetAudioArgs(float targetVolume, float fadeDuration, int channel)
         {
-            AudioArgs args = GetBaseAudioArgs();
+            AudioArgs args = base.GetAudioArgs();
+            args.WantsVolumeSet = true;
+            args.WantsPitchSet = false;
             args.TargetVolume = CorrectedTargetVolume(targetVolume);
             args.FadeDuration = Mathf.Max(0, fadeDuration);
             args.Channel = channel;
@@ -68,6 +69,8 @@ namespace CGT.FungusExt.Audio
             bool triggerContinueAfterFade = args.WantsFade && waitForFade && IsLongerFade(fadeDuration);
             if (triggerContinueAfterFade)
                 args.OnComplete = CallContinueForOnComplete;
+            else
+                args.OnComplete = FillerOnComplete;
 
             return args;
         }
@@ -83,14 +86,6 @@ namespace CGT.FungusExt.Audio
             return targetVolume;
         }
 
-        protected virtual AudioArgs GetBaseAudioArgs()
-        {
-            AudioArgs args = new AudioArgs();
-            args.WantsVolumeSet = true;
-            args.WantsPitchSet = false;
-            return args;
-        }
-
         protected virtual bool IsLongerFade(float fade)
         {
             // So we don't have BOTH AudioArgs triggering Continue
@@ -101,10 +96,10 @@ namespace CGT.FungusExt.Audio
         {
             bool bothSetToCallIt = first.OnComplete == CallContinueForOnComplete &&
                 second.OnComplete == CallContinueForOnComplete;
-            // ^Perhaps for when their fade values are the same non-zero value
+            // ^Perhaps for when their fades are the same non-zero value
             if (bothSetToCallIt)
             {
-                second.OnComplete = (AudioArgs args) => { };
+                second.OnComplete = FillerOnComplete;
             }
 
             bool neitherSetToCallIt = !first.WantsFade && !second.WantsFade;

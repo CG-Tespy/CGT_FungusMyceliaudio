@@ -5,10 +5,10 @@ using StringBuilder = System.Text.StringBuilder;
 namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
-        "PlayAudio",
+        "PlayChAudio",
         "Plays an audio clip in the given channel")]
     [AddComponentMenu("")]
-    public class PlayAudio : AudioCommand
+    public class PlayChannelAudio : AudioCommand
     {
         [SerializeField] protected IntegerData channel = new IntegerData(0);
 
@@ -32,8 +32,7 @@ namespace CGT.FungusExt.Audio
             if (ValidClip)
             {
                 AudioArgs args = GetAudioArgs();
-                AudioHandler eventToPlay = playEvents[audioType];
-                eventToPlay(args);
+                AudioEvents.TriggerPlayAudio(args);
             }
             else
             {
@@ -43,19 +42,15 @@ namespace CGT.FungusExt.Audio
 
         protected virtual bool ValidClip { get { return clip.Value is AudioClip; } }
 
-        protected virtual AudioArgs GetAudioArgs()
+        protected override AudioArgs GetAudioArgs()
         {
-            AudioArgs args = new AudioArgs();
+            AudioArgs args = base.GetAudioArgs();
             args.WantsVolumeSet = args.WantsPitchSet = false;
             args.Clip = (AudioClip) clip.Value;
             args.AtTime = atTime;
             args.Loop = loop;
             args.FadeDuration = fadeDuration;
             args.Channel = channel;
-
-            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
-            // ^OnComplete will always be called right after the target clip starts playing, be it
-            // right away or after a fade. Thus, we won't need a Continue call in OnEnter
 
             return args;
         }

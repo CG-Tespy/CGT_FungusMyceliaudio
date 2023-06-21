@@ -17,17 +17,15 @@ namespace CGT.FungusExt.Audio
             base.OnEnter();
 
             AudioArgs args = GetAudioArgs();
-            var stopper = stopEvents[audioType];
-            stopper(args);
+            AudioEvents.TriggerStopAudio(args);
         }
 
-        protected virtual AudioArgs GetAudioArgs()
+        protected override AudioArgs GetAudioArgs()
         {
-            AudioArgs args = new AudioArgs();
+            AudioArgs args = base.GetAudioArgs();
             args.Channel = channel;
             args.WantsPitchSet = args.WantsVolumeSet = false;
-            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
-            // ^We won't need to call Continue in OnEnter
+            args.OnComplete = CallContinueForOnComplete;
 
             return args;
         }
@@ -35,7 +33,6 @@ namespace CGT.FungusExt.Audio
         public override string GetSummary()
         {
             return $"{audioType} Ch {channel.Value}";
-            return base.GetSummary();
         }
 
     }

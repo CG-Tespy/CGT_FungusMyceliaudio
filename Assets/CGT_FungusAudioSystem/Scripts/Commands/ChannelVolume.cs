@@ -1,15 +1,14 @@
 using UnityEngine;
-using System.Collections.Generic;
 using Fungus;
 using StringBuilder = System.Text.StringBuilder;
 
 namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
-        "Volume",
-        "Lets you get or set the volume of music, sfx or voice.")]
+        "ChVolume",
+        "Lets you get or set the volume of the given channel")]
     [AddComponentMenu("")]
-    public class Volume : SoundShifter
+    public class ChannelVolume : SoundShifter
     {
         protected override AudioArgs DecideAudioArgs()
         {
@@ -25,7 +24,7 @@ namespace CGT.FungusExt.Audio
 
         protected override void SetValuesToSystem(AudioArgs args)
         {
-            AudioSetter.SetVolume(args);
+            AudioEvents.TriggerSetVolume(args);
         }
 
         protected override void GetValueIntoOutput(AudioArgs args)

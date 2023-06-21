@@ -26,7 +26,7 @@ namespace CGT.FungusExt.Audio
 
         protected override void SetValuesToSystem(AudioArgs args)
         {
-            AudioSetter.SetPitch(args);
+            AudioEvents.TriggerSetPitch(args);
         }
 
         protected override void GetValueIntoOutput(AudioArgs args)

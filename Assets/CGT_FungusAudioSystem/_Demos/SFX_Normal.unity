@@ -634,6 +634,7 @@ GameObject:
   - component: {fileID: 892317840}
   - component: {fileID: 892317839}
   - component: {fileID: 892317838}
+  - component: {fileID: 892317836}
   m_Layer: 0
   m_Name: Channels
   m_TagString: Untagged
@@ -641,6 +642,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &892317836
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892317835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scope: 1
+  key: repeatingSFXCh
+  value: 1
 --- !u!114 &892317838
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -684,6 +700,7 @@ MonoBehaviour:
   selectedCommands: []
   variables:
   - {fileID: 892317838}
+  - {fileID: 892317836}
   description: "Music and SFX have their own sets of channels, meaning that \n(for
     example) Music's Channel 0 is different\nfrom SFX's Channel 0"
   stepPause: 0
@@ -946,7 +963,6 @@ GameObject:
   - component: {fileID: 1020830107}
   - component: {fileID: 1020830106}
   - component: {fileID: 1020830111}
-  - component: {fileID: 1020830110}
   - component: {fileID: 1020830116}
   - component: {fileID: 1020830115}
   - component: {fileID: 1020830114}
@@ -991,7 +1007,7 @@ MonoBehaviour:
   indentLevel: 0
   audioType: 1
   channel:
-    integerRef: {fileID: 1020830110}
+    integerRef: {fileID: 0}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830111}
@@ -1078,7 +1094,6 @@ MonoBehaviour:
   - {fileID: 1020830117}
   variables:
   - {fileID: 1020830111}
-  - {fileID: 1020830110}
   - {fileID: 1020830118}
   description: 
   stepPause: 0
@@ -1090,21 +1105,6 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
---- !u!114 &1020830110
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020830104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb91b566ceda411bad1e9d3c3243ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: sfxChannel
-  value: 0
 --- !u!114 &1020830111
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1190,7 +1190,7 @@ MonoBehaviour:
   indentLevel: 0
   audioType: 1
   channel:
-    integerRef: {fileID: 1020830110}
+    integerRef: {fileID: 892317836}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830118}
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 339
+    x: 337.9691
     y: 153
     width: 134.1237
     height: 40
@@ -1249,7 +1249,7 @@ MonoBehaviour:
   indentLevel: 0
   audioType: 1
   channel:
-    integerRef: {fileID: 892317838}
+    integerRef: {fileID: 892317836}
     integerVal: 0
 --- !u!114 &1020830118
 MonoBehaviour:
@@ -1313,6 +1313,9 @@ GameObject:
   - component: {fileID: 1247571548}
   - component: {fileID: 1247571552}
   - component: {fileID: 1247571551}
+  - component: {fileID: 1247571471}
+  - component: {fileID: 1247571475}
+  - component: {fileID: 1247571472}
   m_Layer: 0
   m_Name: VolumeChanging
   m_TagString: Untagged
@@ -1347,6 +1350,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 1247571545}
   - {fileID: 1247571469}
+  - {fileID: 1247571471}
   - {fileID: 1247571525}
 --- !u!114 &1247571469
 MonoBehaviour:
@@ -1392,6 +1396,64 @@ MonoBehaviour:
   scope: 0
   key: startingSFXVolume
   value: 15
+--- !u!114 &1247571471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  audioType: 1
+  channel:
+    integerRef: {fileID: 892317836}
+    integerVal: 0
+  action: 1
+  targetValue:
+    floatRef: {fileID: 1247571543}
+    floatVal: 1
+  fadeDuration:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  waitForFade:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  output: {fileID: 0}
+--- !u!114 &1247571472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  audioType: 1
+  channel:
+    integerRef: {fileID: 892317836}
+    integerVal: 0
+  action: 1
+  targetValue:
+    floatRef: {fileID: 1247571543}
+    floatVal: 1
+  fadeDuration:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  waitForFade:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  output: {fileID: 0}
 --- !u!4 &1247571473
 Transform:
   m_ObjectHideFlags: 0
@@ -1433,7 +1495,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1247571532}
   selectedCommands:
-  - {fileID: 1247571528}
+  - {fileID: 1247571472}
   variables:
   - {fileID: 1247571470}
   - {fileID: 1247571489}
@@ -1457,6 +1519,35 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
+--- !u!114 &1247571475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247571467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06cbb12f62272d446b69d4f6c03e5c71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  audioType: 1
+  channel:
+    integerRef: {fileID: 892317836}
+    integerVal: 0
+  action: 1
+  targetValue:
+    floatRef: {fileID: 1247571543}
+    floatVal: 1
+  fadeDuration:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  waitForFade:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  output: {fileID: 0}
 --- !u!114 &1247571482
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2034,6 +2125,7 @@ MonoBehaviour:
   - {fileID: 1247571522}
   - {fileID: 1247571521}
   - {fileID: 1247571520}
+  - {fileID: 1247571475}
   - {fileID: 1247571539}
 --- !u!114 &1247571525
 MonoBehaviour:
@@ -2233,6 +2325,7 @@ MonoBehaviour:
   - {fileID: 1247571530}
   - {fileID: 1247571529}
   - {fileID: 1247571528}
+  - {fileID: 1247571472}
   - {fileID: 1247571527}
 --- !u!114 &1247571533
 MonoBehaviour:
@@ -3689,7 +3782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1247571474}
+  selectedFlowchart: {fileID: 1020830109}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1

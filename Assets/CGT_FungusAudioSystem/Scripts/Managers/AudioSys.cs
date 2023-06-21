@@ -38,17 +38,26 @@ namespace CGT.FungusExt.Audio
         protected virtual void EnsureAudioManagersAreThere()
         {
             string musicManagerName = "CGT_FungusMusicManager";
-            bool noMusicManager = !audioManagers.ContainsKey(AudioType.Music) ||
-                audioManagers[AudioType.Music] == null;
-            if (noMusicManager)
-                musicManager = audioManagers[AudioType.Music] = CreateAudioManager(musicManagerName);
-
+            EnsureThereIsManagerFor(AudioType.Music, musicManagerName);
+           
             string sfxManagerName = "CGT_FungusSFXManager";
-            bool noSfxManager = !audioManagers.ContainsKey(AudioType.SFX) ||
-                audioManagers[AudioType.SFX] == null;
-            if (noSfxManager)
-                sfxManager = audioManagers[AudioType.SFX] = CreateAudioManager(sfxManagerName);
+            EnsureThereIsManagerFor(AudioType.SFX, sfxManagerName);
 
+            string voiceManagerName = "CGT_FungusVoiceManager";
+            EnsureThereIsManagerFor(AudioType.Voice, voiceManagerName);
+
+            musicManager = audioManagers[AudioType.Music];
+            sfxManager = audioManagers[AudioType.SFX];
+            voiceManager = audioManagers[AudioType.Voice];
+        }
+
+        protected virtual void EnsureThereIsManagerFor(AudioType audioType, string managerName)
+        {
+            bool itIsThere = audioManagers.ContainsKey(audioType) && audioManagers[audioType] != null;
+            if (!itIsThere)
+            {
+                audioManagers[audioType] = CreateAudioManager(managerName);
+            }
         }
 
         protected virtual AudioManager CreateAudioManager(string name)
@@ -64,7 +73,7 @@ namespace CGT.FungusExt.Audio
 
         protected IDictionary<AudioType, AudioManager> audioManagers = new Dictionary<AudioType, AudioManager>();
 
-        protected AudioManager musicManager, sfxManager;
+        protected AudioManager musicManager, sfxManager, voiceManager;
 
         protected virtual void OnEnable()
         {
@@ -76,15 +85,19 @@ namespace CGT.FungusExt.Audio
         {
             AudioEvents.PlayMusic += musicManager.Play;
             AudioEvents.PlaySFX += sfxManager.Play;
+            AudioEvents.PlayVoice += voiceManager.Play;
 
             AudioEvents.SetMusicVol += musicManager.SetVolume;
             AudioEvents.SetSFXVol += sfxManager.SetVolume;
+            AudioEvents.SetVoiceVol += voiceManager.SetVolume;
 
             AudioEvents.SetMusicPitch += musicManager.SetPitch;
             AudioEvents.SetSFXPitch += sfxManager.SetPitch;
+            AudioEvents.SetVoicePitch += voiceManager.SetPitch;
 
             AudioEvents.StopMusic += musicManager.Stop;
             AudioEvents.StopSFX += sfxManager.Stop;
+            AudioEvents.StopVoice += voiceManager.Stop;
         }
 
         protected virtual void OnDisable()

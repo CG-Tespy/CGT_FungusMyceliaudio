@@ -56,7 +56,7 @@ namespace CGT.FungusExt.Audio
             args.FadeDuration = Mathf.Max(0, fadeDuration);
             args.Channel = this.channel;
 
-            args.OnComplete = (AudioArgs maybeOtherArgs) => { Continue(); };
+            args.OnComplete = CallContinueForOnComplete;
             // ^OnComplete will always be called right after the volume's done adjusting, be it
             // right away or after a fade. Thus, we won't need a Continue call in OnEnter
 
@@ -98,13 +98,11 @@ namespace CGT.FungusExt.Audio
             Debug.LogError(errorMessage);
         }
 
-        protected virtual AudioSetter AudioSetter { get; set; } = new AudioSetter();
         protected virtual string InvalidOutputErrorMessageFormat { get; } = "{0} invalid in Flowchart {1}, Block {2}, Index {3}. Reason: No valid output var assigned for Get operation";
                 
         protected override void Awake()
         {
             base.Awake();
-            AudioSetter.Init();
         }
 
         public override string GetSummary()
