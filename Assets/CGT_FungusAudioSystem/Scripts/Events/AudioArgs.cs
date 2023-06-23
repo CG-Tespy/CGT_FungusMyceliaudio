@@ -33,7 +33,7 @@ namespace CGT.FungusExt.Audio
             get { return WantsClipPlayed && AtTime >= 0; }
         }
 
-        public virtual int Channel { get; set; }
+        public virtual int Track { get; set; }
         public virtual AudioType AudioType { get; set; }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace CGT.FungusExt.Audio
             theCopy.TargetPitch = source.TargetPitch;
             theCopy.Loop = source.Loop;
             theCopy.AtTime = source.AtTime;
-            theCopy.Channel = source.Channel;
+            theCopy.Track = source.Track;
             theCopy.OnComplete = source.OnComplete;
             theCopy.AudioType = source.AudioType;
 

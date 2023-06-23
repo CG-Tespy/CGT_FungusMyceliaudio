@@ -739,8 +739,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 1
-  channel:
-    integerRef: {fileID: 1020830110}
+  track:
+    integerRef: {fileID: 0}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830111}
@@ -990,7 +990,7 @@ MonoBehaviour:
   itemId: 2
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -998,7 +998,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571542}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1042,7 +1042,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571542}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -1102,9 +1102,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1247571505}
+  - {fileID: 1247571490}
   selectedCommands:
-  - {fileID: 1247571501}
+  - {fileID: 1247571485}
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571470}
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   itemId: 6
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1522,7 +1522,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571542}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -1782,7 +1782,7 @@ MonoBehaviour:
   itemId: 33
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1790,7 +1790,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571542}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   itemId: 40
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2483,7 +2483,7 @@ MonoBehaviour:
   itemId: 56
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2491,7 +2491,7 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571542}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -4967,7 +4967,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   clip:

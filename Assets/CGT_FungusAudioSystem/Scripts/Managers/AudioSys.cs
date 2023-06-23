@@ -63,7 +63,7 @@ namespace CGT.FungusExt.Audio
         protected virtual AudioManager CreateAudioManager(string name)
         {
             // We have separate game objects for the managers so we can check the
-            // channel-counts and such in the Scene view
+            // track-counts and such in the Scene view
             GameObject holdsManager = new GameObject(name);
             holdsManager.transform.SetParent(this.transform);
             AudioManager manager = new AudioManager(holdsManager);
@@ -109,15 +109,19 @@ namespace CGT.FungusExt.Audio
         {
             AudioEvents.PlayMusic -= musicManager.Play;
             AudioEvents.PlaySFX -= sfxManager.Play;
+            AudioEvents.PlayVoice -= voiceManager.Play;
 
             AudioEvents.SetMusicVol -= musicManager.SetVolume;
             AudioEvents.SetSFXVol -= sfxManager.SetVolume;
+            AudioEvents.SetVoiceVol -= voiceManager.SetVolume;
 
             AudioEvents.SetMusicPitch -= musicManager.SetPitch;
             AudioEvents.SetSFXPitch -= sfxManager.SetPitch;
+            AudioEvents.SetVoicePitch -= voiceManager.SetPitch;
 
             AudioEvents.StopMusic -= musicManager.Stop;
             AudioEvents.StopSFX -= sfxManager.Stop;
+            AudioEvents.StopVoice -= voiceManager.Stop;
         }
 
         public float GetVolume(AudioArgs args)
@@ -132,24 +136,5 @@ namespace CGT.FungusExt.Audio
             return managerToUse.GetPitch(args);
         }
 
-        public float GetMusicVolume(AudioArgs args)
-        {
-            return musicManager.GetVolume(args);
-        }
-
-        public virtual float GetSFXVolume(AudioArgs args)
-        {
-            return sfxManager.GetVolume(args);
-        }
-
-        public virtual float GetMusicPitch(AudioArgs args)
-        {
-            return musicManager.GetPitch(args);
-        }
-
-        public virtual float GetSFXPitch(AudioArgs args)
-        {
-            return sfxManager.GetPitch(args);
-        }
     }
 }

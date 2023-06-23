@@ -934,8 +934,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 1
-  channel:
-    integerRef: {fileID: 1020830110}
+  track:
+    integerRef: {fileID: 0}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830111}
@@ -1160,7 +1160,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1227,8 +1227,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1247571490}
+  selectedCommands:
+  - {fileID: 1247571485}
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571489}
@@ -1633,7 +1635,7 @@ MonoBehaviour:
   itemId: 6
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1901,7 +1903,7 @@ MonoBehaviour:
   itemId: 33
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -4461,23 +4463,23 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   clip:
     objectRef: {fileID: 2093348753}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 2093348758}
     booleanVal: 0
 --- !u!114 &2093348751
 MonoBehaviour:
@@ -4531,9 +4533,8 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 2093348775}
-  selectedCommands:
-  - {fileID: 2093348756}
+  - {fileID: 2093348820}
+  selectedCommands: []
   variables:
   - {fileID: 2093348764}
   - {fileID: 2093348777}
@@ -4737,7 +4738,7 @@ MonoBehaviour:
   itemId: 4
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   clip:
@@ -4840,7 +4841,7 @@ MonoBehaviour:
   itemId: 12
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   clip:
@@ -5007,7 +5008,7 @@ MonoBehaviour:
   itemId: 67
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
 --- !u!114 &2093348789
@@ -5038,8 +5039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 469.672
-    y: 273.16794
+    x: 472.76474
+    y: 274.19885
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}

@@ -6,11 +6,11 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "PlayAudio",
-        "Plays an audio clip in the given channel")]
+        "Plays an audio clip in the given track.")]
     [AddComponentMenu("")]
     public class PlayAudio : AudioCommand
     {
-        [SerializeField] protected IntegerData channel = new IntegerData(0);
+        [SerializeField] protected IntegerData track = new IntegerData(0);
 
         [SerializeField] protected ObjectData clip = new ObjectData(null);
 
@@ -50,7 +50,7 @@ namespace CGT.FungusExt.Audio
             args.AtTime = atTime;
             args.Loop = loop;
             args.FadeDuration = fadeDuration;
-            args.Channel = channel;
+            args.Track = track;
 
             return args;
         }
@@ -72,7 +72,7 @@ namespace CGT.FungusExt.Audio
                 return "Error: No clip given";
 
             forSummary.Clear();
-            forSummary.Append($"{audioType} Ch {channel.Value} {clip.Value.name} ");
+            forSummary.Append($"{audioType} Tr {track.Value} {clip.Value.name} ");
 
             bool wantsPlayAtTime = atTime.Value >= 0;
             if (wantsPlayAtTime)

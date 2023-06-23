@@ -6,7 +6,7 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "Volume",
-        "Lets you get or set the volume of the given channel")]
+        "Lets you get or set the volume of the given track.")]
     [AddComponentMenu("")]
     public class Volume : SoundShifter
     {

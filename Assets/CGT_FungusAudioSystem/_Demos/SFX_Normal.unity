@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 892317838}
   - component: {fileID: 892317836}
   m_Layer: 0
-  m_Name: Channels
+  m_Name: Tracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: chimeSFXCh
+  key: singlePlaySFXTr
   value: 0
 --- !u!114 &892317839
 MonoBehaviour:
@@ -701,8 +701,8 @@ MonoBehaviour:
   variables:
   - {fileID: 892317838}
   - {fileID: 892317836}
-  description: "Music and SFX have their own sets of channels, meaning that \n(for
-    example) Music's Channel 0 is different\nfrom SFX's Channel 0"
+  description: "Music and SFX have their own sets of tracks, meaning that \n(for example)
+    Music's Track 0 is different\nfrom SFX's Channel 0"
   stepPause: 0
   colorCommands: 1
   hideComponents: 1
@@ -1006,8 +1006,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 1
-  channel:
-    integerRef: {fileID: 0}
+  track:
+    integerRef: {fileID: 892317838}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830111}
@@ -1019,7 +1019,7 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 0
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -1189,7 +1189,7 @@ MonoBehaviour:
   itemId: 3
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
   clip:
@@ -1202,7 +1202,7 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
     booleanRef: {fileID: 0}
@@ -1248,7 +1248,7 @@ MonoBehaviour:
   itemId: 5
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
 --- !u!114 &1020830118
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   itemId: 2
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
@@ -1375,10 +1375,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571470
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   value: 15
 --- !u!114 &1247571471
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   itemId: 75
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
@@ -1419,15 +1419,15 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571472
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   itemId: 77
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
@@ -1448,10 +1448,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!4 &1247571473
@@ -1481,21 +1481,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -171.63414, y: 80.11498}
+  scrollPos: {x: -207.44472, y: 3.4070559}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.73000026
+  zoom: 0.8800001
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 1247571532}
-  selectedCommands:
-  - {fileID: 1247571472}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 1247571470}
   - {fileID: 1247571489}
@@ -1521,7 +1519,7 @@ MonoBehaviour:
   luaBindingName: flowchart
 --- !u!114 &1247571475
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1534,7 +1532,7 @@ MonoBehaviour:
   itemId: 76
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
@@ -1542,10 +1540,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571482
@@ -1564,7 +1562,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 361.83673
     y: 50.680855
-    width: 163.97256
+    width: 157.2727
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1660,7 +1658,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 675.80084
     y: 284.01736
-    width: 167.26022
+    width: 160.90907
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1998,7 +1996,7 @@ MonoBehaviour:
   itemId: 40
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
@@ -2006,10 +2004,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571521
@@ -2113,7 +2111,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 683.8017
     y: 51.39604
-    width: 151.91777
+    width: 143.63635
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2198,7 +2196,7 @@ MonoBehaviour:
   itemId: 56
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 892317838}
     integerVal: 0
   action: 1
@@ -2206,10 +2204,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571543}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571529
@@ -2313,7 +2311,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 370.3495
     y: 189.47206
-    width: 151.91777
+    width: 148.18181
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3782,7 +3780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1020830109}
+  selectedFlowchart: {fileID: 1247571474}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1

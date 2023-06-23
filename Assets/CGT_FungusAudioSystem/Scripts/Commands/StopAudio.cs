@@ -7,11 +7,11 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "StopAudio",
-        "Stops the audio of the given type in the given channel")]
+        "Stops the audio of the given type in the given track.")]
     [AddComponentMenu("")]
     public class StopAudio : AudioCommand
     {
-        [SerializeField] protected IntegerData channel = new IntegerData(0);
+        [SerializeField] protected IntegerData track = new IntegerData(0);
 
         public override void OnEnter()
         {
@@ -24,7 +24,7 @@ namespace CGT.FungusExt.Audio
         protected override AudioArgs GetAudioArgs()
         {
             AudioArgs args = base.GetAudioArgs();
-            args.Channel = channel;
+            args.Track = track;
             args.WantsPitchSet = args.WantsVolumeSet = false;
             args.OnComplete = CallContinueForOnComplete;
 
@@ -33,7 +33,7 @@ namespace CGT.FungusExt.Audio
 
         public override string GetSummary()
         {
-            return $"{audioType} Ch {channel.Value}";
+            return $"{audioType} Ch {track.Value}";
         }
 
     }

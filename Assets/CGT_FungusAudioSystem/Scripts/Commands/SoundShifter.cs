@@ -9,7 +9,7 @@ namespace CGT.FungusExt.Audio
     /// </summary>
     public abstract class SoundShifter: AudioCommand
     {
-        [SerializeField] protected IntegerData channel = new IntegerData(0);
+        [SerializeField] protected IntegerData track = new IntegerData(0);
         [SerializeField] protected GetOrSet action = GetOrSet.Set;
 
         [Header("For Setting")]
@@ -54,7 +54,7 @@ namespace CGT.FungusExt.Audio
             AudioArgs args = new AudioArgs();
             args.AudioType = audioType;
             args.FadeDuration = Mathf.Max(0, fadeDuration);
-            args.Channel = this.channel;
+            args.Track = this.track;
 
             args.OnComplete = CallContinueForOnComplete;
             // ^OnComplete will always be called right after the volume's done adjusting, be it
@@ -113,7 +113,7 @@ namespace CGT.FungusExt.Audio
             else
                 forSummary.Append($"{action} ");
 
-            forSummary.Append($"Ch {channel.Value} {audioType} ");
+            forSummary.Append($"Tr {track.Value} {audioType} ");
 
             if (action == GetOrSet.Set)
             {

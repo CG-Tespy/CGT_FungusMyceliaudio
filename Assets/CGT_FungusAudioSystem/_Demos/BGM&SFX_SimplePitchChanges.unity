@@ -855,7 +855,7 @@ MonoBehaviour:
   itemId: 83
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1357,7 +1357,7 @@ MonoBehaviour:
   itemId: 82
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -1649,7 +1649,7 @@ MonoBehaviour:
   itemId: 76
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   itemId: 79
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2283,7 +2283,7 @@ MonoBehaviour:
   itemId: 75
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2312,7 +2312,7 @@ MonoBehaviour:
   itemId: 78
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2412,9 +2412,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 861811447}
+  - {fileID: 861811428}
   selectedCommands:
-  - {fileID: 861811444}
+  - {fileID: 861811443}
   variables:
   - {fileID: 861811481}
   - {fileID: 861811480}
@@ -2715,8 +2715,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 1
-  channel:
-    integerRef: {fileID: 1020830110}
+  track:
+    integerRef: {fileID: 0}
     integerVal: 0
   clip:
     objectRef: {fileID: 1020830111}
@@ -2799,7 +2799,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1020830108}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1020830106}
   variables:
   - {fileID: 1020830111}
   - {fileID: 1020830110}
@@ -2885,7 +2886,7 @@ MonoBehaviour:
   itemId: 3
   indentLevel: 0
   audioType: 1
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -2901,7 +2902,7 @@ MonoBehaviour:
   output: {fileID: 0}
 --- !u!114 &1020830114
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3037,8 +3038,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 78
-    y: 158
+    x: 501.68402
+    y: 181.68428
     width: 196.31575
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3127,8 +3128,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 82
-    y: 77
+    x: 505.68408
+    y: 100.68419
     width: 207.89468
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -3164,7 +3165,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 1304208503}
+  - {fileID: 1304208520}
+  - {fileID: 1304208505}
+  - {fileID: 1304208509}
   selectedCommands: []
   variables: []
   description: 
@@ -3302,8 +3305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -210.84802
-    y: 124.82277
+    x: 212.83609
+    y: 148.50703
     width: 211.05258
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -5065,7 +5068,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   clip:
@@ -5137,7 +5140,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2093348751}
   selectedCommands:
-  - {fileID: 2093348753}
+  - {fileID: 2093348750}
   variables:
   - {fileID: 2093348777}
   - {fileID: 2093348759}
@@ -5169,7 +5172,7 @@ MonoBehaviour:
   itemId: 2
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 0}
     integerVal: 0
   action: 1
@@ -5180,12 +5183,12 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 2093348758}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &2093348754
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}

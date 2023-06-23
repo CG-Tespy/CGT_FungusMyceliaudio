@@ -7,17 +7,17 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "CrossfadeVo",
-        "Lets you fade one channel's ~Volume~ out and another channel's in at the same time")]
+        "Lets you fade one track's ~Volume~ out and another track's in at the same time.")]
     [AddComponentMenu("")]
     public class CrossfadeVo : AudioCommand
     {
         [Header("For Fading Out")]
-        [SerializeField] protected IntegerData fadeOutCh = new IntegerData(0);
+        [SerializeField] protected IntegerData fadeOutTr = new IntegerData(0);
         [SerializeField] protected FloatData fadeOutTargVol = new FloatData(0);
         [SerializeField] protected FloatData fadeOutDuration = new FloatData(1f);
 
         [Header("For Fading In")]
-        [SerializeField] protected IntegerData fadeInCh = new IntegerData(1);
+        [SerializeField] protected IntegerData fadeInTr = new IntegerData(1);
         [SerializeField] protected FloatData fadeInTargVol = new FloatData(0.25f);
         [SerializeField] protected FloatData fadeInDuration = new FloatData(1f);
 
@@ -28,14 +28,14 @@ namespace CGT.FungusExt.Audio
         {
             base.OnEnter();
 
-            if (BothSameChannels)
+            if (BothSameTracks)
             {
-                AlertSameChannelIssue();
+                AlertSameTrackIssue();
             }
             else
             {
-                AudioArgs fadeOutArgs = GetAudioArgs(fadeOutTargVol, fadeOutDuration, fadeOutCh),
-                    fadeInArgs = GetAudioArgs(fadeInTargVol, fadeInDuration, fadeInCh);
+                AudioArgs fadeOutArgs = GetAudioArgs(fadeOutTargVol, fadeOutDuration, fadeOutTr),
+                    fadeInArgs = GetAudioArgs(fadeInTargVol, fadeInDuration, fadeInTr);
 
                 EnsureContinueGetsCalledProperly(fadeOutArgs, fadeInArgs);
                 AudioEvents.TriggerSetVolume(fadeOutArgs);
@@ -46,25 +46,25 @@ namespace CGT.FungusExt.Audio
                 Continue();
         }
         
-        protected virtual bool BothSameChannels { get { return fadeInCh.Value == fadeOutCh.Value; } }
+        protected virtual bool BothSameTracks { get { return fadeInTr.Value == fadeOutTr.Value; } }
 
-        protected virtual void AlertSameChannelIssue()
+        protected virtual void AlertSameTrackIssue()
         {
             string flowchartName = gameObject.name;
             string blockName = ParentBlock.BlockName;
             int index = CommandIndex;
-            string errorMessage = $"Crossfade: Same channels in Flowchart {flowchartName}, Block {blockName} Index {index}";
+            string errorMessage = $"Crossfade: Same tracks in Flowchart {flowchartName}, Block {blockName} Index {index}";
             Debug.LogError(errorMessage);
         }
 
-        protected virtual AudioArgs GetAudioArgs(float targetVolume, float fadeDuration, int channel)
+        protected virtual AudioArgs GetAudioArgs(float targetVolume, float fadeDuration, int track)
         {
             AudioArgs args = base.GetAudioArgs();
             args.WantsVolumeSet = true;
             args.WantsPitchSet = false;
             args.TargetVolume = CorrectedTargetVolume(targetVolume);
             args.FadeDuration = Mathf.Max(0, fadeDuration);
-            args.Channel = channel;
+            args.Track = track;
 
             bool triggerContinueAfterFade = args.WantsFade && waitForFade && IsLongerFade(fadeDuration);
             if (triggerContinueAfterFade)
@@ -110,11 +110,11 @@ namespace CGT.FungusExt.Audio
 
         public override string GetSummary()
         {
-            bool bothSameChannels = fadeInCh.Value == fadeOutCh.Value;
-            if (bothSameChannels)
-                return "ERROR: both channels are the same";
+            bool bothSameTracks = fadeInTr.Value == fadeOutTr.Value;
+            if (bothSameTracks)
+                return "ERROR: both tracks are the same";
 
-            return $"{audioType} Out: Ch {fadeOutCh.Value} | In: Ch {fadeInCh.Value}";
+            return $"{audioType} Out: Tr {fadeOutTr.Value} | In: Tr {fadeInTr.Value}";
         }
 
     }

@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 892317842}
   - component: {fileID: 892317841}
   m_Layer: 0
-  m_Name: Channels
+  m_Name: Tracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: firstBGMCh
+  key: firstBGMTr
   value: 0
 --- !u!114 &892317837
 MonoBehaviour:
@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: secondBGMCh
+  key: secondBGMTr
   value: 1
 --- !u!114 &892317838
 MonoBehaviour:
@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: chimeSFXCh
+  key: chimeSFXTr
   value: 0
 --- !u!114 &892317839
 MonoBehaviour:
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: otherBGMCh
+  key: otherBGMTr
   value: 0
 --- !u!114 &892317842
 MonoBehaviour:
@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: currentBGMCh
+  key: currentBGMTr
   value: 0
 --- !u!1 &894909998
 GameObject:
@@ -1352,8 +1352,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
-    integerRef: {fileID: 892317836}
+  track:
+    integerRef: {fileID: 0}
     integerVal: 0
   action: 1
   targetValue:
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -72.65877, y: -68.22647}
+  scrollPos: {x: -184.98746, y: 87.937874}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -1419,8 +1419,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1247571490}
+  selectedCommands:
+  - {fileID: 1247571485}
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571470}
@@ -1832,7 +1834,7 @@ MonoBehaviour:
   itemId: 6
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
@@ -1840,10 +1842,10 @@ MonoBehaviour:
     floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571488
@@ -2036,18 +2038,18 @@ MonoBehaviour:
   itemId: 33
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
   targetValue:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571544}
     floatVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 1247571551}
     booleanVal: 0
   output: {fileID: 0}
 --- !u!114 &1247571502
@@ -4785,7 +4787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1247571474}
+  selectedFlowchart: {fileID: 2093348752}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -5318,16 +5320,12 @@ GameObject:
   - component: {fileID: 2093348814}
   - component: {fileID: 2093348813}
   - component: {fileID: 2093348812}
-  - component: {fileID: 2093348792}
   - component: {fileID: 2093348756}
   - component: {fileID: 2093348782}
   - component: {fileID: 2093348754}
   - component: {fileID: 2093348781}
   - component: {fileID: 2093348772}
   - component: {fileID: 2093348769}
-  - component: {fileID: 2093348821}
-  - component: {fileID: 2093348797}
-  - component: {fileID: 2093348796}
   - component: {fileID: 2093348793}
   - component: {fileID: 2093348753}
   - component: {fileID: 2093348757}
@@ -5371,23 +5369,23 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
-    integerRef: {fileID: 892317842}
+  track:
+    integerRef: {fileID: 892317836}
     integerVal: 0
   clip:
     objectRef: {fileID: 2093348777}
     objectVal: {fileID: 0}
   atTime:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 2093348780}
     floatVal: 0
   loop:
     booleanRef: {fileID: 0}
     booleanVal: 1
   fadeDuration:
-    floatRef: {fileID: 0}
+    floatRef: {fileID: 1247571547}
     floatVal: 0
   waitForFade:
-    booleanRef: {fileID: 0}
+    booleanRef: {fileID: 2093348758}
     booleanVal: 0
 --- !u!114 &2093348751
 MonoBehaviour:
@@ -5448,9 +5446,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 2093348799}
+  - {fileID: 2093348751}
   selectedCommands:
-  - {fileID: 2093348786}
+  - {fileID: 2093348750}
   variables:
   - {fileID: 2093348764}
   - {fileID: 2093348777}
@@ -5460,10 +5458,6 @@ MonoBehaviour:
   - {fileID: 2093348758}
   - {fileID: 2093348780}
   - {fileID: 2093348779}
-  - {fileID: 2093348792}
-  - {fileID: 2093348821}
-  - {fileID: 2093348797}
-  - {fileID: 2093348796}
   description: 
   stepPause: 0
   colorCommands: 1
@@ -5510,7 +5504,7 @@ MonoBehaviour:
   itemId: 106
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317837}
     integerVal: 0
   clip:
@@ -5564,7 +5558,7 @@ MonoBehaviour:
   itemId: 104
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317836}
     integerVal: 0
   action: 1
@@ -5665,7 +5659,7 @@ MonoBehaviour:
   itemId: 65
   indentLevel: 1
   audioType: 0
-  fadeOutCh:
+  fadeOutTr:
     integerRef: {fileID: 892317837}
     integerVal: 0
   fadeOutTargVol:
@@ -5674,7 +5668,7 @@ MonoBehaviour:
   fadeOutDuration:
     floatRef: {fileID: 1247571509}
     floatVal: 1
-  fadeInCh:
+  fadeInTr:
     integerRef: {fileID: 892317836}
     integerVal: 1
   fadeInTargVol:
@@ -5722,7 +5716,7 @@ MonoBehaviour:
   itemId: 148
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317837}
     integerVal: 0
   action: 1
@@ -5953,7 +5947,7 @@ MonoBehaviour:
   itemId: 64
   indentLevel: 1
   audioType: 0
-  fadeOutCh:
+  fadeOutTr:
     integerRef: {fileID: 892317836}
     integerVal: 0
   fadeOutTargVol:
@@ -5962,7 +5956,7 @@ MonoBehaviour:
   fadeOutDuration:
     floatRef: {fileID: 1247571509}
     floatVal: 1
-  fadeInCh:
+  fadeInTr:
     integerRef: {fileID: 892317837}
     integerVal: 1
   fadeInTargVol:
@@ -6002,21 +5996,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 36
   indentLevel: 0
---- !u!114 &2093348792
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: currentSong
-  value: {fileID: 8300000, guid: bde1771cd2dac1943b5fd828f51472e0, type: 3}
 --- !u!114 &2093348793
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6031,7 +6010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 133
   indentLevel: 0
-  variable: {fileID: 2093348792}
+  variable: {fileID: 0}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -6095,36 +6074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 32
   indentLevel: 0
---- !u!114 &2093348796
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: secondChannelSong
-  value: {fileID: 8300000, guid: 0f17b836763812440a7d0e77c5b0e054, type: 3}
---- !u!114 &2093348797
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: firstChannelSong
-  value: {fileID: 8300000, guid: 2579596fabcb87a49a5fee65881e2098, type: 3}
 --- !u!114 &2093348798
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6518,18 +6467,3 @@ MonoBehaviour:
   - {fileID: 2093348814}
   - {fileID: 2093348813}
   - {fileID: 2093348812}
---- !u!114 &2093348821
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: songTemp
-  value: {fileID: 0}

@@ -6,59 +6,59 @@ namespace CGT.FungusExt.Audio.Internal
 {
     public class AudioManager
     {
-        protected IDictionary<int, FungusAudioSource> channels = new Dictionary<int, FungusAudioSource>();
+        protected IDictionary<int, FungusAudioSource> tracks = new Dictionary<int, FungusAudioSource>();
 
         public AudioManager(GameObject gameObject)
         {
             forTweens = gameObject;
-            SetUpInitialChannels();
+            SetUpInitialTracks();
         }
 
         protected GameObject forTweens;
 
-        protected virtual void SetUpInitialChannels()
+        protected virtual void SetUpInitialTracks()
         {
-            for (int i = 0; i < initChannelCount; i++)
+            for (int i = 0; i < initTrackCount; i++)
             {
-                channels[i] = new FungusAudioSource(forTweens);
+                tracks[i] = new FungusAudioSource(forTweens);
             }
         }
 
-        protected int initChannelCount = 2;
+        protected int initTrackCount = 2;
 
         public virtual void Play(AudioArgs args)
         {
-            channels[args.Channel].Play(args);
+            tracks[args.Track].Play(args);
         }
 
         public virtual void SetVolume(AudioArgs args)
         {
-            channels[args.Channel].SetVolume(args);
+            tracks[args.Track].SetVolume(args);
         }
 
         public virtual void FadeVolume(AudioArgs args)
         {
-            channels[args.Channel].FadeVolume(args);
+            tracks[args.Track].FadeVolume(args);
         }
 
         public virtual void SetPitch(AudioArgs args)
         {
-            channels[args.Channel].SetPitch(args);
+            tracks[args.Track].SetPitch(args);
         }
 
         public virtual void Stop(AudioArgs args)
         {
-            channels[args.Channel].Stop(args);
+            tracks[args.Track].Stop(args);
         }
 
         public virtual float GetVolume(AudioArgs args)
         {
-            return channels[args.Channel].CurrentVolume;
+            return tracks[args.Track].CurrentVolume;
         }
 
         public virtual float GetPitch(AudioArgs args)
         {
-            return channels[args.Channel].CurrentPitch;
+            return tracks[args.Track].CurrentPitch;
         }
     
         public virtual string Name { get; set; }

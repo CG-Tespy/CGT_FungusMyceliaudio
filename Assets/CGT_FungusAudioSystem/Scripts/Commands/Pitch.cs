@@ -8,7 +8,7 @@ namespace CGT.FungusExt.Audio
 {
     [CommandInfo("Audio/CGT",
         "Pitch",
-        "Lets you get or set the pitch of music, sfx or voice.")]
+        "Lets you get or set the pitch of music, sfx or voice in a given track.")]
     [AddComponentMenu("")]
     public class Pitch : SoundShifter
     {

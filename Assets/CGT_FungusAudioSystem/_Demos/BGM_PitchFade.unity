@@ -659,7 +659,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 616.4849
     y: 159.95065
-    width: 166.45566
+    width: 162.19511
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -813,8 +813,8 @@ MonoBehaviour:
   itemId: 87
   indentLevel: 0
   audioType: 0
-  channel:
-    integerRef: {fileID: 0}
+  track:
+    integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
   targetValue:
@@ -843,7 +843,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 370.0594
     y: 286.59872
-    width: 131.01263
+    width: 128.04877
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1029,7 +1029,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.0527
     y: 286.0963
-    width: 143.16454
+    width: 139.75609
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1376,7 +1376,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 956.44336
     y: 108.49255
-    width: 154.30377
+    width: 150.4878
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1516,7 +1516,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 629.6626
     y: 41.494236
-    width: 140.12656
+    width: 136.82925
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1555,11 +1555,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -87.78062, y: 43.780724}
+  scrollPos: {x: -128.99359, y: 24.730124}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.7900002
+  zoom: 0.8200001
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -1567,8 +1567,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 494277545}
-  selectedCommands: []
+  - {fileID: 494277573}
+  selectedCommands:
+  - {fileID: 494277572}
   variables:
   - {fileID: 494277565}
   - {fileID: 494277563}
@@ -2947,7 +2948,7 @@ GameObject:
   - component: {fileID: 892317842}
   - component: {fileID: 892317841}
   m_Layer: 0
-  m_Name: Channels
+  m_Name: Tracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2966,7 +2967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: firstBGMCh
+  key: firstBGMTr
   value: 0
 --- !u!114 &892317837
 MonoBehaviour:
@@ -2981,7 +2982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: secondBGMCh
+  key: secondBGMTr
   value: 1
 --- !u!114 &892317838
 MonoBehaviour:
@@ -2996,7 +2997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: chimeSFXCh
+  key: chimeSFXTr
   value: 0
 --- !u!114 &892317839
 MonoBehaviour:
@@ -3030,8 +3031,8 @@ MonoBehaviour:
   - {fileID: 892317837}
   - {fileID: 892317842}
   - {fileID: 892317841}
-  description: "Music and SFX have their own sets of channels, meaning that \n(for
-    example) Music's Channel 0 is different\nfrom SFX's Channel 0"
+  description: "Music and SFX have their own sets of tracks, meaning that \n(for example)
+    Music's Channel 0 is different\nfrom SFX's Channel 0"
   stepPause: 0
   colorCommands: 1
   hideComponents: 1
@@ -3068,7 +3069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: otherBGMCh
+  key: otherBGMTr
   value: 0
 --- !u!114 &892317842
 MonoBehaviour:
@@ -3083,7 +3084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scope: 1
-  key: currentBGMCh
+  key: currentBGMTr
   value: 0
 --- !u!1 &894909998
 GameObject:
@@ -3343,8 +3344,8 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
-    integerRef: {fileID: 892317836}
+  track:
+    integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
   targetValue:
@@ -3412,7 +3413,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1247571468}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 1247571471}
   variables:
   - {fileID: 1247571472}
   - {fileID: 1247571544}
@@ -3616,7 +3618,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1304208502
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3636,7 +3638,7 @@ MonoBehaviour:
     booleanVal: 0
 --- !u!114 &1304208503
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3662,7 +3664,7 @@ MonoBehaviour:
   - {fileID: 1304208502}
 --- !u!114 &1304208504
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4986,7 +4988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 494277623}
+  selectedFlowchart: {fileID: 2093348752}
 --- !u!4 &1938816915
 Transform:
   m_ObjectHideFlags: 1
@@ -5551,7 +5553,7 @@ MonoBehaviour:
   itemId: 1
   indentLevel: 0
   audioType: 0
-  channel:
+  track:
     integerRef: {fileID: 892317842}
     integerVal: 0
   clip:
@@ -5625,10 +5627,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 2093348751}
-  selectedCommands:
-  - {fileID: 2093348756}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 2093348764}
   - {fileID: 2093348777}
@@ -5683,8 +5683,8 @@ MonoBehaviour:
   itemId: 104
   indentLevel: 0
   audioType: 0
-  channel:
-    integerRef: {fileID: 892317837}
+  track:
+    integerRef: {fileID: 892317842}
     integerVal: 0
   action: 1
   targetValue:
