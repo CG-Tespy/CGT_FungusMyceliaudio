@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     public class AudioArgs : System.EventArgs
     {

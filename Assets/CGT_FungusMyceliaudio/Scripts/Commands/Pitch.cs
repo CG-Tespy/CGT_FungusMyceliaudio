@@ -4,7 +4,7 @@ using UnityEngine;
 using Fungus;
 using StringBuilder = System.Text.StringBuilder;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     [CommandInfo("Audio/CGT",
         "Pitch",

@@ -1,4 +1,4 @@
-﻿namespace CGT.FungusExt.Audio
+﻿namespace CGT.FungusExt.Myceliaudio
 {
     /// <summary>
     /// To help audio-playing not sound funky. These values are in the ranges

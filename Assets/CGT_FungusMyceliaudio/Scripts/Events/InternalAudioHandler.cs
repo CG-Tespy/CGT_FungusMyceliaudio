@@ -1,4 +1,4 @@
-﻿namespace CGT.FungusExt.Audio.Internal
+﻿namespace CGT.FungusExt.Myceliaudio.Internal
 {
     public delegate void InternalAudioHandler(InternalAudioArgs args);
 }

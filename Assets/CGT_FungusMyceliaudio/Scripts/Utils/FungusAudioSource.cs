@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CGT.FungusExt.Audio.Internal
+namespace CGT.FungusExt.Myceliaudio.Internal
 {
     /// <summary>
     /// Helper class for NeoAudioManager that also kind of wraps Unity's built-in AudioSource component

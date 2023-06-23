@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace CGT.FungusExt.Audio.Internal
+namespace CGT.FungusExt.Myceliaudio.Internal
 {
     public class AudioManager
     {

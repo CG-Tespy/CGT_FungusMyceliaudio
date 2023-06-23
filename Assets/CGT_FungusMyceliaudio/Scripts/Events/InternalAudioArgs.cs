@@ -1,4 +1,4 @@
-﻿namespace CGT.FungusExt.Audio.Internal
+﻿namespace CGT.FungusExt.Myceliaudio.Internal
 {
     /// <summary>
     /// Since we don't want client code to worry about certain fields that

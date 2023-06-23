@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     public static class AudioEvents
     {

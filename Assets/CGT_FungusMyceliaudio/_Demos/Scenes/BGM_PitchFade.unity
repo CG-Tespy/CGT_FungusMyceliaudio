@@ -5506,15 +5506,11 @@ GameObject:
   - component: {fileID: 2093348783}
   - component: {fileID: 2093348780}
   - component: {fileID: 2093348779}
-  - component: {fileID: 2093348792}
   - component: {fileID: 2093348756}
   - component: {fileID: 2093348782}
   - component: {fileID: 2093348781}
   - component: {fileID: 2093348772}
   - component: {fileID: 2093348769}
-  - component: {fileID: 2093348821}
-  - component: {fileID: 2093348797}
-  - component: {fileID: 2093348796}
   - component: {fileID: 2093348793}
   - component: {fileID: 2093348753}
   m_Layer: 0
@@ -5627,7 +5623,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 2093348751}
   selectedCommands: []
   variables:
   - {fileID: 2093348764}
@@ -5638,10 +5635,6 @@ MonoBehaviour:
   - {fileID: 2093348758}
   - {fileID: 2093348780}
   - {fileID: 2093348779}
-  - {fileID: 2093348792}
-  - {fileID: 2093348821}
-  - {fileID: 2093348797}
-  - {fileID: 2093348796}
   - {fileID: 2093348753}
   description: 
   stepPause: 0
@@ -5929,21 +5922,6 @@ MonoBehaviour:
   scope: 0
   key: secondSong
   value: {fileID: 8300000, guid: 0f17b836763812440a7d0e77c5b0e054, type: 3}
---- !u!114 &2093348792
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: currentSong
-  value: {fileID: 8300000, guid: bde1771cd2dac1943b5fd828f51472e0, type: 3}
 --- !u!114 &2093348793
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5958,7 +5936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 133
   indentLevel: 0
-  variable: {fileID: 2093348792}
+  variable: {fileID: 0}
   setOperator: 0
   booleanData:
     booleanRef: {fileID: 0}
@@ -6008,48 +5986,3 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
---- !u!114 &2093348796
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: secondChannelSong
-  value: {fileID: 8300000, guid: 0f17b836763812440a7d0e77c5b0e054, type: 3}
---- !u!114 &2093348797
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: firstChannelSong
-  value: {fileID: 8300000, guid: 2579596fabcb87a49a5fee65881e2098, type: 3}
---- !u!114 &2093348821
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093348748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecbb345616367420f90d15042808304e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scope: 0
-  key: songTemp
-  value: {fileID: 0}

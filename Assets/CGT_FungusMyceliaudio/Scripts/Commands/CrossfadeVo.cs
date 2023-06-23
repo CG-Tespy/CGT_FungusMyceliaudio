@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using Fungus;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     [CommandInfo("Audio/CGT",
         "CrossfadeVo",

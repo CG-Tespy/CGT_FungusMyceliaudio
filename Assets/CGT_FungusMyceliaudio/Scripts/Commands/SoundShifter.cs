@@ -2,7 +2,7 @@
 using Fungus;
 using StringBuilder = System.Text.StringBuilder;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     /// <summary>
     /// For setting properties of audio.

@@ -1,7 +1,7 @@
 using UnityEngine;
 using Fungus;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     public abstract class AudioCommand : Command
     {

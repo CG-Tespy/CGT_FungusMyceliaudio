@@ -1,4 +1,4 @@
-﻿namespace CGT.FungusExt.Audio
+﻿namespace CGT.FungusExt.Myceliaudio
 {
     public enum GetOrSet { Get, Set }
 }

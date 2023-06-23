@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     [CommandInfo("Audio/CGT",
         "StopAudio",

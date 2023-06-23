@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-using CGT.FungusExt.Audio.Internal;
+using CGT.FungusExt.Myceliaudio.Internal;
 
-namespace CGT.FungusExt.Audio
+namespace CGT.FungusExt.Myceliaudio
 {
     /// <summary>
     /// Alternative to Fungus's built-in MusicManager that works with commands that alter
